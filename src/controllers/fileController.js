@@ -171,22 +171,23 @@ const deleteFile = async (req, res) => {
 const softDeleteFiles = async (req, res) => {
   try {
     const userId = req.user.userId;
-    const fileId = req.params.file_id;
+    const fileId = req.params.fileId;
 
     const file = await prisma.file.findFirst({
       where: {
-        deletedAt: false,
         id: fileId,
         ownerId: userId,
+        isDeleted: false,
       },
     });
+
     if (!file) {
-      return res.status(400).json({
-        message:
-          "File not found or you don't have appropriate permission to delete the file",
+      return res.status(404).json({
+        message: "File not found or you don't have appropriate permission",
       });
     }
-    const updateFile = await prisma.file.update({
+
+    const updatedFile = await prisma.file.update({
       where: {
         id: fileId,
       },
@@ -196,12 +197,13 @@ const softDeleteFiles = async (req, res) => {
         deleteById: userId,
       },
     });
+
     res.status(200).json({
       message: "File moved to trash",
       file: {
-        id: updateFile.id,
-        name: updateFile.name,
-        deleteFile: updateFile.deletedAt,
+        id: updatedFile.id,
+        name: updatedFile.name,
+        deletedAt: updatedFile.deletedAt,
       },
     });
   } catch (error) {
@@ -211,4 +213,80 @@ const softDeleteFiles = async (req, res) => {
     });
   }
 };
-module.exports = { uploadFile, getAllFiles, deleteFile, softDeleteFiles };
+
+const viewTrashFiles = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const totalTrashFiles = await prisma.file.count({
+      where: {
+        isDeleted: true,
+        ownerId: userId, // Show user's own deleted files
+      },
+    });
+
+    const trashFiles = await prisma.file.findMany({
+      where: {
+        isDeleted: true,
+        ownerId: userId,
+      },
+      orderBy: {
+        deletedAt: "desc",
+      },
+      select: {
+        id: true,
+        deletedAt: true,
+        format: true,
+        ownerId: true,
+        url: true,
+        name: true,
+        size: true,
+        deletedBy: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      skip,
+      take: limit,
+    });
+    if (!trashFiles) {
+      return res.status(400).json({
+        message: "No trash files found",
+      });
+    }
+    const totalPages = Math.ceil(totalTrashFiles / limit);
+    const hasNextPage = page < totalPages;
+    const hasPrevPage = page > 1;
+
+    res.status(200).json({
+      message: "Files retrieved successfully",
+      data: {
+        trashFiles,
+        pagination: {
+          currentPage: page,
+          totalPages,
+          totalFiles: totalTrashFiles,
+          hasNextPage,
+          hasPrevPage,
+          limit,
+        },
+      },
+    });
+  } catch (error) {
+    consol.error("Could not fetch trash files,", error);
+    res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
+module.exports = {
+  uploadFile,
+  getAllFiles,
+  deleteFile,
+  softDeleteFiles,
+  viewTrashFiles,
+};

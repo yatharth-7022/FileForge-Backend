@@ -4,6 +4,7 @@ const {
   getAllFiles,
   deleteFile,
   softDeleteFiles,
+  viewTrashFiles,
 } = require("../controllers/fileController");
 const { authenticateToken } = require("../middleware/auth");
 const fileUpload = require("../middleware/fileUpload");
@@ -17,5 +18,6 @@ router.post(
 );
 router.get("/get-files", authenticateToken, getAllFiles);
 router.delete("/delete-file/:fileId", authenticateToken, deleteFile);
-router.put("/files/:fileId/trash", authenticateToken, softDeleteFiles);
+router.put("/soft-delete/:fileId", authenticateToken, softDeleteFiles);
+router.get("/trash", authenticateToken, viewTrashFiles);
 module.exports = router;
