@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id String @id @default(uuid())
+  email String @unique
+  password String
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  files File[] @relation("FileOwner")
+  deletedFiles File[] @relation("FileDeleter")
+}
+ 
+model File{
+  id String @id@default(uuid())
+  name String
+  url String
+  size Int
+  publicId String
+  format String
+
+  //OWNER RELATION(User)
+  owner User @relation("FileOwner",fields: [ownerId],references: [id])
+  ownerId String
+
+  //SOFT DELETE FIELDS
+  isDeleted Boolean @default(false)
+  deletedAt DateTime?
+  deletedBy User? @relation("FileDeleter",fields: [deleteById],references: [id])
+  deleteById String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+}
