@@ -3,19 +3,22 @@ const cloudinary = require("../config/cloudinary");
 const { Readable } = require("stream");
 const { format } = require("path");
 const { search } = require("../routes/upload");
+const { application } = require("express");
 
 const prisma = new PrismaClient();
 const uploadToCloudinary = (buffer) => {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
-      { resource_type: "auto" }, // auto-detect resource type
+      {
+        resource_type: "raw", // Changed from "auto" to "raw"
+        type: "private", // Add this to ensure private access
+      },
       (error, result) => {
         if (error) reject(error);
         else resolve(result);
       }
     );
 
-    // Convert buffer to stream and pipe to Cloudinary
     const bufferStream = Readable.from(buffer);
     bufferStream.pipe(stream);
   });
@@ -23,15 +26,36 @@ const uploadToCloudinary = (buffer) => {
 
 const uploadFile = async (req, res) => {
   try {
+    console.log("Upload request received:", {
+      file: req.file
+        ? {
+            originalname: req.file.originalname,
+            mimetype: req.file.mimetype,
+            size: req.file.size,
+            buffer: req.file.buffer ? "Buffer present" : "Buffer missing",
+          }
+        : "No file in request",
+    });
+
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
+
+    if (!req.file.buffer || req.file.buffer.length === 0) {
+      return res.status(400).json({ message: "File buffer is empty" });
+    }
+
+    console.log("Attempting to upload to Cloudinary...");
     const cloudinaryResponse = await uploadToCloudinary(req.file.buffer);
+
+    // Get the file format from the mimetype
+    const format = req.file.mimetype.split("/")[1];
+
     const file = await prisma.file.create({
       data: {
         name: req.file.originalname,
         url: cloudinaryResponse.secure_url,
-        format: cloudinaryResponse.format,
+        format: format, // Using the extracted format
         publicId: cloudinaryResponse.public_id,
         size: req.file.size,
         ownerId: req.user.userId,
@@ -116,7 +140,7 @@ const getAllFiles = async (req, res) => {
     });
   } catch (error) {
     console.error("Error fetching files", error);
-    if ((error.name = "ValidationError")) {
+    if (error.name === "ValidationError") {
       return res.status(400).json({
         message: "Invalid query parameters",
         details: error.message,
@@ -277,10 +301,80 @@ const viewTrashFiles = async (req, res) => {
       },
     });
   } catch (error) {
-    consol.error("Could not fetch trash files,", error);
+    console.error("Could not fetch trash files,", error);
     res.status(500).json({
       message: "Internal server error",
     });
+  }
+};
+const downloadFile = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const fileId = req.params.fileId;
+
+    const file = await prisma.file.findFirst({
+      where: {
+        id: fileId,
+        ownerId: userId,
+        isDeleted: false,
+      },
+    });
+
+    if (!file) {
+      return res.status(404).json({
+        message: "File not found or you don't have permission to download",
+      });
+    }
+
+    // Set appropriate headers
+    res.setHeader("Content-Disposition", `inline; filename="${file.name}"`);
+    const mimeType =
+      file.format === "pdf"
+        ? "application/pdf"
+        : file.format === "doc" || file.format === "docx"
+        ? "application/msword"
+        : `application/${file.format}`;
+
+    res.setHeader("Content-Type", mimeType);
+
+    // Generate a signed URL with the correct resource type
+    const signedUrl = cloudinary.url(file.publicId, {
+      resource_type: "raw", // Changed from 'auto' to 'raw'
+      secure: true,
+      type: "private",
+      format: file.format,
+      sign_url: true,
+      attachment: true, // This will force download
+    });
+
+    // Log the URL for debugging
+    console.log("Generated Cloudinary URL:", signedUrl);
+
+    const axios = require("axios");
+    const response = await axios({
+      method: "get",
+      url: signedUrl,
+      responseType: "stream",
+      headers: {
+        Accept: "*/*", // Accept any content type
+      },
+    });
+
+    // Pipe the response to our response
+    response.data.pipe(res);
+  } catch (error) {
+    console.error("Download error details:", {
+      message: error.message,
+      status: error.response?.status,
+      cloudinaryError: error.response?.headers?.["x-cld-error"],
+    });
+
+    if (!res.headersSent) {
+      res.status(500).json({
+        message: "Error processing download request",
+        details: error.message,
+      });
+    }
   }
 };
 module.exports = {
@@ -289,4 +383,5 @@ module.exports = {
   deleteFile,
   softDeleteFiles,
   viewTrashFiles,
+  downloadFile,
 };

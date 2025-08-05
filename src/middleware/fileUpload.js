@@ -10,6 +10,12 @@ const ALLOWED_FILE_TYPES = {
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const storage = multer.memoryStorage();
 const fileFilter = (req, file, cb) => {
+  console.log("Received file:", {
+    fieldname: file.fieldname,
+    originalname: file.originalname,
+    mimetype: file.mimetype,
+  });
+
   if (ALLOWED_FILE_TYPES[file.mimetype]) {
     cb(null, true);
   } else {

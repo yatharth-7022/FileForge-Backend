@@ -1,6 +1,8 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
+const logger = require("./config/logger");
+const requestLogger = require("./middleware/requestLogger");
 const authRoutes = require("./routes/auth");
 const uploadRoutes = require("./routes/upload");
 const app = express();
@@ -20,17 +22,27 @@ app.use(
 
 const PORT = 5000;
 app.use(express.json());
+app.use(requestLogger);
 app.get("/health", (req, res) => {
+  logger.info("Health check endpoint called", {
+    timestamp: new Date().toISOString(),
+    ip: req.ip,
+  });
   res.json({
     message: "Welcome to my backend",
   });
 });
 app.use("/api/auth", authRoutes);
 app.use("/api", uploadRoutes);
+
+// Error handling middleware should be last
+const errorHandler = require("./middleware/errorHandler");
+app.use(errorHandler);
+
 app
   .listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    logger.info(`Server is running on port ${PORT}`);
   })
   .on("error", (err) => {
-    console.error("Server failed to start:", err);
+    logger.error("Server failed to start:", err);
   });
