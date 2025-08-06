@@ -1766,3 +1766,62 @@
 {"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":4307,"statusCode":200,"timestamp":"2025-08-06 06:13:33"}
 {"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/2564e590-fb0c-413c-a3fd-315ec071d77d","query":{},"timestamp":"2025-08-06 06:13:50","userAgent":"PostmanRuntime/7.45.0"}
 {"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/2564e590-fb0c-413c-a3fd-315ec071d77d","responseTime":11,"statusCode":200,"timestamp":"2025-08-06 06:13:50"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 08:30:36"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 08:30:36"}
+{"body":{"email":"yatharth@yopmail.com","password":"yatharth"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-06 08:30:48","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":257,"statusCode":200,"timestamp":"2025-08-06 08:30:48"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-06 08:31:18","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":35,"statusCode":500,"timestamp":"2025-08-06 08:31:18"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 08:32:02"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 08:32:02"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-06 08:32:05","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":447,"statusCode":500,"timestamp":"2025-08-06 08:32:05"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 08:34:53"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 08:34:53"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-06 08:34:56","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":465,"statusCode":500,"timestamp":"2025-08-06 08:34:57"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 08:38:01"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 08:38:01"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 08:38:33"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 08:38:34"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-06 08:38:36","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":5032,"statusCode":200,"timestamp":"2025-08-06 08:38:41"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 09:11:32"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 09:11:33"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-06 09:12:12","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":71,"statusCode":200,"timestamp":"2025-08-06 09:12:12"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 09:13:01"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 09:13:01"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 09:14:19"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 09:14:20"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-06 09:14:53","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":15,"statusCode":400,"timestamp":"2025-08-06 09:14:53"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-06 09:15:12","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":4998,"statusCode":200,"timestamp":"2025-08-06 09:15:17"}
+{"ip":"::1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/5c14ddac-8d1d-4c9c-8444-27bfe1004897","query":{},"timestamp":"2025-08-06 09:15:27","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/5c14ddac-8d1d-4c9c-8444-27bfe1004897","responseTime":10,"statusCode":200,"timestamp":"2025-08-06 09:15:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{},"timestamp":"2025-08-06 09:15:33","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":2,"statusCode":403,"timestamp":"2025-08-06 09:15:33"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{},"timestamp":"2025-08-06 09:15:38","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":15,"statusCode":200,"timestamp":"2025-08-06 09:15:38"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/download/5c14ddac-8d1d-4c9c-8444-27bfe1004897","query":{},"timestamp":"2025-08-06 09:16:05","userAgent":"PostmanRuntime/7.45.0"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/download/5c14ddac-8d1d-4c9c-8444-27bfe1004897","query":{},"timestamp":"2025-08-06 09:16:09","userAgent":"PostmanRuntime/7.45.0"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/download/5c14ddac-8d1d-4c9c-8444-27bfe1004897","query":{},"timestamp":"2025-08-06 09:16:25","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/download/5c14ddac-8d1d-4c9c-8444-27bfe1004897","responseTime":4,"statusCode":404,"timestamp":"2025-08-06 09:16:25"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/download/5c14ddac-8d1d-4c9c-8444-27bfe1004897","query":{},"timestamp":"2025-08-06 09:16:49","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/download/5c14ddac-8d1d-4c9c-8444-27bfe1004897","responseTime":3,"statusCode":404,"timestamp":"2025-08-06 09:16:49"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/5c14ddac-8d1d-4c9c-8444-27bfe1004897","query":{},"timestamp":"2025-08-06 09:17:16","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/5c14ddac-8d1d-4c9c-8444-27bfe1004897","responseTime":3,"statusCode":400,"timestamp":"2025-08-06 09:17:16"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-06 09:19:16","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-06 09:19:16"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/download/1bbe1a37-bc67-4d16-aa41-2a972e17e2b6","query":{},"timestamp":"2025-08-06 09:19:28","userAgent":"PostmanRuntime/7.45.0"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/1bbe1a37-bc67-4d16-aa41-2a972e17e2b6","query":{},"timestamp":"2025-08-06 09:19:56","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/1bbe1a37-bc67-4d16-aa41-2a972e17e2b6","responseTime":199,"statusCode":500,"timestamp":"2025-08-06 09:19:56"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 09:22:50"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 09:22:50"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/download/1bbe1a37-bc67-4d16-aa41-2a972e17e2b6","query":{},"timestamp":"2025-08-06 09:22:53","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-06 09:23:15"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-06 09:23:15"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/1bbe1a37-bc67-4d16-aa41-2a972e17e2b6","query":{},"timestamp":"2025-08-06 09:23:20","userAgent":"PostmanRuntime/7.45.0"}
+{"body":{"name":"Renamed"},"ip":"::1","level":"info","message":"Incoming PATCH request","path":"/api/rename-file/1bbe1a37-bc67-4d16-aa41-2a972e17e2b6","query":{},"timestamp":"2025-08-06 09:23:54","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for PATCH","path":"/rename-file/1bbe1a37-bc67-4d16-aa41-2a972e17e2b6","responseTime":388,"statusCode":200,"timestamp":"2025-08-06 09:23:54"}

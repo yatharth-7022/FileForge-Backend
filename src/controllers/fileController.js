@@ -5,6 +5,12 @@ const mime = require("mime-types"); // Add this dependency: npm install mime-typ
 const { sign } = require("crypto");
 const axios = require("axios"); // Add this at the top of fileController.js if not already
 const { REFUSED } = require("dns");
+const {
+  BlobServiceClient,
+  generateBlobSASQueryParameters,
+  BlobSASPermissions,
+  StorageSharedKeyCredential,
+} = require("@azure/storage-blob");
 
 const prisma = new PrismaClient();
 
@@ -47,21 +53,37 @@ const uploadFile = async (req, res) => {
       return res.status(400).json({ message: "File buffer is empty" });
     }
 
-    console.log("Attempting to upload to Cloudinary...");
-    const cloudinaryResponse = await uploadToCloudinary(req.file.buffer);
+    console.log("Attempting to upload to Azure Blob Storage...");
 
-    // Improved format extraction using mime-types
+    const blobServiceClient = BlobServiceClient.fromConnectionString(
+      process.env.AZURE_STORAGE_CONNECTION_STRING
+    );
+    const containerClient = blobServiceClient.getContainerClient("files"); // Your container name
+    const uniqueFileName = `${req.user.userId}/${Date.now()}-${
+      req.file.originalname
+    }`; // Unique path
+    const blockBlobClient = containerClient.getBlockBlobClient(uniqueFileName);
+
+    // Upload file to Azure
+    await blockBlobClient.uploadData(req.file.buffer, {
+      blobHTTPHeaders: { blobContentType: req.file.mimetype },
+    });
+
+    // Improved format extraction
     const format =
       mime.extension(req.file.mimetype) ||
       req.file.mimetype.split("/")[1] ||
       "unknown";
+    const cloudinaryResponse = await uploadToCloudinary(req.file.buffer);
+
+    // Improved format extraction using mime-types
 
     const file = await prisma.file.create({
       data: {
         name: req.file.originalname,
-        url: cloudinaryResponse.secure_url,
+        url: blockBlobClient.url,
         format: format,
-        publicId: cloudinaryResponse.public_id,
+        publicId: uniqueFileName, // Use as publicId for later reference
         size: req.file.size,
         ownerId: req.user.userId,
       },
@@ -121,9 +143,38 @@ const getAllFiles = async (req, res) => {
         updatedAt: true,
         format: true,
         size: true,
+        publicId: true, // Added: Needed for SAS generation
       },
       skip,
       take: limit,
+    });
+
+    // Parse account details from connection string
+    const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
+    const accountName = connectionString.match(/AccountName=([^;]+)/)[1];
+    const accountKey = connectionString.match(/AccountKey=([^;]+)/)[1];
+    const sharedKeyCredential = new StorageSharedKeyCredential(
+      accountName,
+      accountKey
+    );
+
+    // Generate signed URLs for each file
+    const filesWithSignedUrls = files.map((file) => {
+      const sasOptions = {
+        permissions: BlobSASPermissions.parse("r"), // Read-only
+        startsOn: new Date(),
+        expiresOn: new Date(new Date().valueOf() + 3600 * 1000), // 1 hour
+      };
+      const sasToken = generateBlobSASQueryParameters(
+        sasOptions,
+        sharedKeyCredential
+      ).toString();
+      const signedUrl = `${file.url}?${sasToken}`;
+
+      return {
+        ...file,
+        url: signedUrl, // Replace raw URL with signed one
+      };
     });
 
     const totalPages = Math.ceil(totalFiles / limit);
@@ -131,9 +182,9 @@ const getAllFiles = async (req, res) => {
     const hasPrevPage = page > 1;
 
     res.status(200).json({
-      message: "Files retrieved successfully", // Fixed typo: "Filed" -> "Files"
+      message: "Files retrieved successfully",
       data: {
-        files,
+        files: filesWithSignedUrls, // Updated with signed URLs
         pagination: {
           currentPage: page,
           totalPages,
@@ -147,7 +198,6 @@ const getAllFiles = async (req, res) => {
   } catch (error) {
     console.error("Error fetching files", error);
     if (error.name === "ValidationError") {
-      // Fixed: == to ===
       return res.status(400).json({
         message: "Invalid query parameters",
         details: error.message,
@@ -175,19 +225,22 @@ const deleteFile = async (req, res) => {
         message: "File not found or you don't have permission",
       });
     }
-    try {
-      await cloudinary.uploader.destroy(file.publicId);
-    } catch (cloudinaryError) {
-      console.error("Error deleting file", cloudinaryError);
-      return res.status(500).json({
-        message: "Error deleting file from storage",
-      });
-    }
+
+    // Delete from Azure Blob Storage
+    const blobServiceClient = BlobServiceClient.fromConnectionString(
+      process.env.AZURE_STORAGE_CONNECTION_STRING
+    );
+    const containerClient = blobServiceClient.getContainerClient("files");
+    const blockBlobClient = containerClient.getBlockBlobClient(file.publicId);
+    await blockBlobClient.deleteIfExists(); // Safe delete even if not found
+
+    // Delete from Prisma
     await prisma.file.delete({
       where: {
         id: fileId,
       },
     });
+
     res.json({
       message: "File deleted successfully",
       fileId: fileId,
@@ -281,17 +334,45 @@ const viewTrashFiles = async (req, res) => {
             name: true,
           },
         },
+        publicId: true, // Added for SAS
       },
       skip,
       take: limit,
     });
     if (!trashFiles || trashFiles.length === 0) {
-      // Improved check
       return res.status(404).json({
-        // Changed to 404 for "not found"
         message: "No trash files found",
       });
     }
+
+    // Parse account details from connection string
+    const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
+    const accountName = connectionString.match(/AccountName=([^;]+)/)[1];
+    const accountKey = connectionString.match(/AccountKey=([^;]+)/)[1];
+    const sharedKeyCredential = new StorageSharedKeyCredential(
+      accountName,
+      accountKey
+    );
+
+    // Generate signed URLs
+    const trashFilesWithSignedUrls = trashFiles.map((file) => {
+      const sasOptions = {
+        permissions: BlobSASPermissions.parse("r"),
+        startsOn: new Date(),
+        expiresOn: new Date(new Date().valueOf() + 3600 * 1000),
+      };
+      const sasToken = generateBlobSASQueryParameters(
+        sasOptions,
+        sharedKeyCredential
+      ).toString();
+      const signedUrl = `${file.url}?${sasToken}`;
+
+      return {
+        ...file,
+        url: signedUrl,
+      };
+    });
+
     const totalPages = Math.ceil(totalTrashFiles / limit);
     const hasNextPage = page < totalPages;
     const hasPrevPage = page > 1;
@@ -299,7 +380,7 @@ const viewTrashFiles = async (req, res) => {
     res.status(200).json({
       message: "Files retrieved successfully",
       data: {
-        trashFiles,
+        trashFiles: trashFilesWithSignedUrls,
         pagination: {
           currentPage: page,
           totalPages,
@@ -337,53 +418,41 @@ const downloadFile = async (req, res) => {
       });
     }
 
-    // Log for debugging
-    console.log("File details for download:", {
-      publicId: file.publicId,
-      format: file.format,
-      name: file.name,
-    });
+    // Parse account details from connection string
+    const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
+    const accountName = connectionString.match(/AccountName=([^;]+)/)[1];
+    const accountKey = connectionString.match(/AccountKey=([^;]+)/)[1];
+    const sharedKeyCredential = new StorageSharedKeyCredential(
+      accountName,
+      accountKey
+    );
 
-    // Generate signed URL params for private download
-    const timestamp = Math.floor(Date.now() / 1000); // Current time in seconds
-    const expiresIn = timestamp + 3600; // Expires in 1 hour
-    const paramsToSign = {
-      public_id: file.publicId, // No extension
-      timestamp: timestamp,
-      expires_at: expiresIn,
-      resource_type: "raw",
-      // type: "private",
+    // Full SAS options for blob-specific token
+    const sasOptions = {
+      containerName: "files", // Your container
+      blobName: file.publicId, // The unique path from upload
+      permissions: BlobSASPermissions.parse("r"), // Read-only
+      startsOn: new Date(),
+      expiresOn: new Date(new Date().valueOf() + 3600 * 1000), // 1 hour
+      protocol: "https", // Enforce HTTPS
+      version: "2023-08-03", // Valid Azure service version
     };
 
-    // Sign the request with Cloudinary API secret
-    const signature = cloudinary.utils.api_sign_request(
-      paramsToSign,
-      cloudinary.config().api_secret
-    );
+    const sasToken = generateBlobSASQueryParameters(
+      sasOptions,
+      sharedKeyCredential
+    ).toString();
+    const signedUrl = `https://${accountName}.blob.core.windows.net/${sasOptions.containerName}/${sasOptions.blobName}?${sasToken}`;
 
-    // Build the signed URL with attachment flag to force download
-    const signedUrl = cloudinary.utils.private_download_url(
-      file.publicId,
-      file.format,
-      {
-        resource_type: "raw",
-        type: "private",
-        expires_at: expiresIn,
-        attachment: true,
-      }
-    );
+    console.log("Generated SAS URL for download:", signedUrl); // Debug log
 
-    // Log the URL for debugging
-    console.log("Generated signed Cloudinary URL:", signedUrl);
-
-    // Redirect to the signed URL for direct download
+    // Redirect to signed URL for download
     res.redirect(302, signedUrl);
   } catch (error) {
     console.error("Download error details:", {
       message: error.message,
       stack: error.stack,
     });
-
     if (!res.headersSent) {
       res.status(500).json({
         message: "Error processing download request",
@@ -411,50 +480,46 @@ const viewFile = async (req, res) => {
       });
     }
 
-    // Log for debugging
-    console.log("File details for view:", {
-      publicId: file.publicId,
-      format: file.format,
-      name: file.name,
-    });
-
-    // Generate signed URL for internal fetch (using private_download_url for secure access)
-    const timestamp = Math.floor(Date.now() / 1000); // Current time in seconds
-    const expiresAt = timestamp + 3600; // Expires in 1 hour
-
-    const signedUrl = cloudinary.utils.private_download_url(
-      file.publicId,
-      file.format,
-      {
-        resource_type: "raw",
-        type: "private",
-        expires_at: expiresAt,
-        attachment: false, // Attempt inline, but we'll override with headers
-      }
+    // Parse account details
+    const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
+    const accountName = connectionString.match(/AccountName=([^;]+)/)[1];
+    const accountKey = connectionString.match(/AccountKey=([^;]+)/)[1];
+    const sharedKeyCredential = new StorageSharedKeyCredential(
+      accountName,
+      accountKey
     );
 
-    // Log the internal signed URL for debugging
-    console.log(
-      "Generated internal signed Cloudinary URL for view:",
-      signedUrl
-    );
+    // Full SAS options for blob-specific token
+    const sasOptions = {
+      containerName: "files", // Your container
+      blobName: file.publicId, // The unique path from upload
+      permissions: BlobSASPermissions.parse("r"), // Read-only
+      startsOn: new Date(),
+      expiresOn: new Date(new Date().valueOf() + 3600 * 1000), // 1 hour
+      protocol: "https", // Enforce HTTPS
+      version: "2023-08-03", // Valid Azure service version
+    };
 
-    // Fetch the file from Cloudinary using the signed URL
+    const sasToken = generateBlobSASQueryParameters(
+      sasOptions,
+      sharedKeyCredential
+    ).toString();
+    const signedUrl = `https://${accountName}.blob.core.windows.net/${sasOptions.containerName}/${sasOptions.blobName}?${sasToken}`;
+
+    console.log("Generated SAS URL for view:", signedUrl); // Debug log
+
+    // Stream the file content with inline headers for viewing
     const response = await axios({
       method: "get",
       url: signedUrl,
-      responseType: "stream", // Stream the response to avoid loading in memory
+      responseType: "stream",
     });
 
-    // Set headers for inline viewing
-    res.setHeader("Content-Disposition", `inline; filename="${file.name}"`); // Inline to render in tab
-    const mimeType = mime.lookup(file.format) || "application/octet-stream"; // Use mime-types for accuracy
+    res.setHeader("Content-Disposition", `inline; filename="${file.name}"`);
+    const mimeType = mime.lookup(file.format) || "application/octet-stream";
     res.setHeader("Content-Type", mimeType);
-
-    // Stream the file content to the client
     response.data.pipe(res);
 
-    // Handle stream errors
     response.data.on("error", (err) => {
       console.error("Stream error during view:", err);
       if (!res.headersSent) {
@@ -474,6 +539,7 @@ const viewFile = async (req, res) => {
     }
   }
 };
+
 const renameFile = async (req, res) => {
   try {
     const userId = req.user.userId;
@@ -503,12 +569,28 @@ const renameFile = async (req, res) => {
       });
     }
 
+    // Rename in Azure: Copy to new blob, delete old
+    const blobServiceClient = BlobServiceClient.fromConnectionString(
+      process.env.AZURE_STORAGE_CONNECTION_STRING
+    );
+    const containerClient = blobServiceClient.getContainerClient("files");
+    const oldBlobClient = containerClient.getBlockBlobClient(
+      existingFile.publicId
+    );
+    const newFileName = existingFile.publicId.replace(existingFile.name, name); // Update path
+    const newBlobClient = containerClient.getBlockBlobClient(newFileName);
+
+    await newBlobClient.beginCopyFromURL(oldBlobClient.url);
+    await oldBlobClient.deleteIfExists();
+
+    // Update Prisma
     const file = await prisma.file.update({
       where: {
         id: fileId,
       },
       data: {
         name: name,
+        publicId: newFileName, // Update publicId to new path
       },
       select: {
         id: true,
@@ -517,6 +599,7 @@ const renameFile = async (req, res) => {
         updatedAt: true,
       },
     });
+
     return res.status(200).json({
       message: "File renamed successfully",
       data: file,
@@ -528,6 +611,7 @@ const renameFile = async (req, res) => {
     });
   }
 };
+
 const getPdfThumbnail = async (req, res) => {
   try {
     const fileId = req.params.fileId;
