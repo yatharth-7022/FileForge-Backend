@@ -1,17 +1,19 @@
 const { PrismaClient } = require("../generated/prisma");
 const cloudinary = require("../config/cloudinary");
 const { Readable } = require("stream");
-const { format } = require("path");
-const { search } = require("../routes/upload");
-const { application } = require("express");
+const mime = require("mime-types"); // Add this dependency: npm install mime-types
+const { sign } = require("crypto");
+const axios = require("axios"); // Add this at the top of fileController.js if not already
+const { REFUSED } = require("dns");
 
 const prisma = new PrismaClient();
+
 const uploadToCloudinary = (buffer) => {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       {
-        resource_type: "raw", // Changed from "auto" to "raw"
-        type: "private", // Add this to ensure private access
+        resource_type: "raw",
+        // type: "private",
       },
       (error, result) => {
         if (error) reject(error);
@@ -48,14 +50,17 @@ const uploadFile = async (req, res) => {
     console.log("Attempting to upload to Cloudinary...");
     const cloudinaryResponse = await uploadToCloudinary(req.file.buffer);
 
-    // Get the file format from the mimetype
-    const format = req.file.mimetype.split("/")[1];
+    // Improved format extraction using mime-types
+    const format =
+      mime.extension(req.file.mimetype) ||
+      req.file.mimetype.split("/")[1] ||
+      "unknown";
 
     const file = await prisma.file.create({
       data: {
         name: req.file.originalname,
         url: cloudinaryResponse.secure_url,
-        format: format, // Using the extracted format
+        format: format,
         publicId: cloudinaryResponse.public_id,
         size: req.file.size,
         ownerId: req.user.userId,
@@ -76,6 +81,7 @@ const uploadFile = async (req, res) => {
     res.status(500).json({ message: "Error uploading file" });
   }
 };
+
 const getAllFiles = async (req, res) => {
   try {
     const userId = req.user.userId;
@@ -125,7 +131,7 @@ const getAllFiles = async (req, res) => {
     const hasPrevPage = page > 1;
 
     res.status(200).json({
-      message: "Filed retrieved successfully",
+      message: "Files retrieved successfully", // Fixed typo: "Filed" -> "Files"
       data: {
         files,
         pagination: {
@@ -141,6 +147,7 @@ const getAllFiles = async (req, res) => {
   } catch (error) {
     console.error("Error fetching files", error);
     if (error.name === "ValidationError") {
+      // Fixed: == to ===
       return res.status(400).json({
         message: "Invalid query parameters",
         details: error.message,
@@ -192,6 +199,7 @@ const deleteFile = async (req, res) => {
     });
   }
 };
+
 const softDeleteFiles = async (req, res) => {
   try {
     const userId = req.user.userId;
@@ -248,7 +256,7 @@ const viewTrashFiles = async (req, res) => {
     const totalTrashFiles = await prisma.file.count({
       where: {
         isDeleted: true,
-        ownerId: userId, // Show user's own deleted files
+        ownerId: userId,
       },
     });
 
@@ -277,8 +285,10 @@ const viewTrashFiles = async (req, res) => {
       skip,
       take: limit,
     });
-    if (!trashFiles) {
-      return res.status(400).json({
+    if (!trashFiles || trashFiles.length === 0) {
+      // Improved check
+      return res.status(404).json({
+        // Changed to 404 for "not found"
         message: "No trash files found",
       });
     }
@@ -307,6 +317,7 @@ const viewTrashFiles = async (req, res) => {
     });
   }
 };
+
 const downloadFile = async (req, res) => {
   try {
     const userId = req.user.userId;
@@ -326,47 +337,51 @@ const downloadFile = async (req, res) => {
       });
     }
 
-    // Set appropriate headers
-    res.setHeader("Content-Disposition", `inline; filename="${file.name}"`);
-    const mimeType =
-      file.format === "pdf"
-        ? "application/pdf"
-        : file.format === "doc" || file.format === "docx"
-        ? "application/msword"
-        : `application/${file.format}`;
-
-    res.setHeader("Content-Type", mimeType);
-
-    // Generate a signed URL with the correct resource type
-    const signedUrl = cloudinary.url(file.publicId, {
-      resource_type: "raw", // Changed from 'auto' to 'raw'
-      secure: true,
-      type: "private",
+    // Log for debugging
+    console.log("File details for download:", {
+      publicId: file.publicId,
       format: file.format,
-      sign_url: true,
-      attachment: true, // This will force download
+      name: file.name,
     });
+
+    // Generate signed URL params for private download
+    const timestamp = Math.floor(Date.now() / 1000); // Current time in seconds
+    const expiresIn = timestamp + 3600; // Expires in 1 hour
+    const paramsToSign = {
+      public_id: file.publicId, // No extension
+      timestamp: timestamp,
+      expires_at: expiresIn,
+      resource_type: "raw",
+      // type: "private",
+    };
+
+    // Sign the request with Cloudinary API secret
+    const signature = cloudinary.utils.api_sign_request(
+      paramsToSign,
+      cloudinary.config().api_secret
+    );
+
+    // Build the signed URL with attachment flag to force download
+    const signedUrl = cloudinary.utils.private_download_url(
+      file.publicId,
+      file.format,
+      {
+        resource_type: "raw",
+        type: "private",
+        expires_at: expiresIn,
+        attachment: true,
+      }
+    );
 
     // Log the URL for debugging
-    console.log("Generated Cloudinary URL:", signedUrl);
+    console.log("Generated signed Cloudinary URL:", signedUrl);
 
-    const axios = require("axios");
-    const response = await axios({
-      method: "get",
-      url: signedUrl,
-      responseType: "stream",
-      headers: {
-        Accept: "*/*", // Accept any content type
-      },
-    });
-
-    // Pipe the response to our response
-    response.data.pipe(res);
+    // Redirect to the signed URL for direct download
+    res.redirect(302, signedUrl);
   } catch (error) {
     console.error("Download error details:", {
       message: error.message,
-      status: error.response?.status,
-      cloudinaryError: error.response?.headers?.["x-cld-error"],
+      stack: error.stack,
     });
 
     if (!res.headersSent) {
@@ -377,6 +392,197 @@ const downloadFile = async (req, res) => {
     }
   }
 };
+
+const viewFile = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const fileId = req.params.fileId;
+
+    const file = await prisma.file.findFirst({
+      where: {
+        id: fileId,
+        ownerId: userId,
+        isDeleted: false,
+      },
+    });
+    if (!file) {
+      return res.status(400).json({
+        message: "File not found or you don't have permission to view",
+      });
+    }
+
+    // Log for debugging
+    console.log("File details for view:", {
+      publicId: file.publicId,
+      format: file.format,
+      name: file.name,
+    });
+
+    // Generate signed URL for internal fetch (using private_download_url for secure access)
+    const timestamp = Math.floor(Date.now() / 1000); // Current time in seconds
+    const expiresAt = timestamp + 3600; // Expires in 1 hour
+
+    const signedUrl = cloudinary.utils.private_download_url(
+      file.publicId,
+      file.format,
+      {
+        resource_type: "raw",
+        type: "private",
+        expires_at: expiresAt,
+        attachment: false, // Attempt inline, but we'll override with headers
+      }
+    );
+
+    // Log the internal signed URL for debugging
+    console.log(
+      "Generated internal signed Cloudinary URL for view:",
+      signedUrl
+    );
+
+    // Fetch the file from Cloudinary using the signed URL
+    const response = await axios({
+      method: "get",
+      url: signedUrl,
+      responseType: "stream", // Stream the response to avoid loading in memory
+    });
+
+    // Set headers for inline viewing
+    res.setHeader("Content-Disposition", `inline; filename="${file.name}"`); // Inline to render in tab
+    const mimeType = mime.lookup(file.format) || "application/octet-stream"; // Use mime-types for accuracy
+    res.setHeader("Content-Type", mimeType);
+
+    // Stream the file content to the client
+    response.data.pipe(res);
+
+    // Handle stream errors
+    response.data.on("error", (err) => {
+      console.error("Stream error during view:", err);
+      if (!res.headersSent) {
+        res.status(500).json({ message: "Error streaming file for viewing" });
+      }
+    });
+  } catch (error) {
+    console.error("View error details:", {
+      message: error.message,
+      stack: error.stack,
+    });
+    if (!res.headersSent) {
+      res.status(500).json({
+        message: "Error generating view",
+        details: error.message,
+      });
+    }
+  }
+};
+const renameFile = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const fileId = req.params.fileId;
+    if (!req.body && typeof req.body !== "object") {
+      return res.status(400).json({
+        message: "Request body is missing or invalid",
+      });
+    }
+    const { name } = req.body;
+
+    if (!name || typeof name !== "string" || name.trim() === "") {
+      return res.status(400).json({
+        message: "Enter a valid name",
+      });
+    }
+
+    const existingFile = await prisma.file.findUnique({
+      where: {
+        id: fileId,
+        ownerId: userId,
+      },
+    });
+    if (!existingFile) {
+      return res.status(400).json({
+        message: "File not found or unauthorized",
+      });
+    }
+
+    const file = await prisma.file.update({
+      where: {
+        id: fileId,
+      },
+      data: {
+        name: name,
+      },
+      select: {
+        id: true,
+        name: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+    return res.status(200).json({
+      message: "File renamed successfully",
+      data: file,
+    });
+  } catch (error) {
+    console.error("Could not rename file ", error);
+    res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
+const getPdfThumbnail = async (req, res) => {
+  try {
+    const fileId = req.params.fileId;
+    const userId = req.user.userId;
+
+    // Get the file details from the database
+    const file = await prisma.file.findFirst({
+      where: {
+        id: fileId,
+        ownerId: userId,
+        isDeleted: false,
+      },
+    });
+    if (!file) {
+      return res.status(400).json({
+        message: "File not found",
+      });
+    }
+    if (file.format.toLowerCase() !== "pdf") {
+      return res.status(400).json({
+        message: "File is not a pdf",
+      });
+    }
+
+    const thumbnailUrl = cloudinary.url(file.publicId, {
+      // No .jpg here
+      resource_type: "image", // Treat as image for transformations
+      transformation: [
+        {
+          width: 300,
+          crop: "fill",
+          page: 1,
+          quality: "auto",
+          fetch_format: "auto",
+        },
+      ],
+      format: "jpg", // Output as JPG
+      secure: true, // HTTPS
+      // No sign_url, expires_at, or type: "private" — for public access
+    });
+
+    // Log for debugging
+    console.log("Generated thumbnail URL:", thumbnailUrl);
+
+    res.status(200).json({
+      thumbnailUrl,
+      originalName: file.name,
+      format: file.format,
+    });
+  } catch (error) {
+    console.error("PDF thumbnail generation error:", error);
+    res.status(500).json({ message: "Error generating PDF thumbnail" });
+  }
+};
+
 module.exports = {
   uploadFile,
   getAllFiles,
@@ -384,4 +590,7 @@ module.exports = {
   softDeleteFiles,
   viewTrashFiles,
   downloadFile,
+  viewFile,
+  renameFile,
+  getPdfThumbnail,
 };
