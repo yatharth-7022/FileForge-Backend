@@ -5,6 +5,15 @@ const mime = require("mime-types"); // Add this dependency: npm install mime-typ
 const { sign } = require("crypto");
 const axios = require("axios"); // Add this at the top of fileController.js if not already
 const { REFUSED } = require("dns");
+const crypto = require("crypto");
+const { UploadClient } = require("@uploadcare/upload-client");
+const uploadcare = require("uploadcare")(
+  process.env.UPLOADCARE_PUBLIC_KEY,
+  process.env.UPLOADCARE_SECRET_KEY
+);
+const client = new UploadClient({
+  publicKey: process.env.UPLOADCARE_PUBLIC_KEY,
+});
 
 const prisma = new PrismaClient();
 
@@ -26,58 +35,103 @@ const uploadToCloudinary = (buffer) => {
   });
 };
 
+// const uploadFile = async (req, res) => {
+//   try {
+//     console.log("Upload request received:", {
+//       file: req.file
+//         ? {
+//             originalname: req.file.originalname,
+//             mimetype: req.file.mimetype,
+//             size: req.file.size,
+//             buffer: req.file.buffer ? "Buffer present" : "Buffer missing",
+//           }
+//         : "No file in request",
+//     });
+
+//     if (!req.file) {
+//       return res.status(400).json({ message: "No file uploaded" });
+//     }
+
+//     if (!req.file.buffer || req.file.buffer.length === 0) {
+//       return res.status(400).json({ message: "File buffer is empty" });
+//     }
+
+//     console.log("Attempting to upload to Cloudinary...");
+//     const cloudinaryResponse = await uploadToCloudinary(req.file.buffer);
+
+//     // Improved format extraction using mime-types
+//     const format =
+//       mime.extension(req.file.mimetype) ||
+//       req.file.mimetype.split("/")[1] ||
+//       "unknown";
+
+//     const file = await prisma.file.create({
+//       data: {
+//         name: req.file.originalname,
+//         url: cloudinaryResponse.secure_url,
+//         format: format,
+//         publicId: cloudinaryResponse.public_id,
+//         size: req.file.size,
+//         ownerId: req.user.userId,
+//       },
+//     });
+//     res.status(200).json({
+//       message: "File uploaded successfully",
+//       file: {
+//         id: file.id,
+//         name: file.name,
+//         format: file.format,
+//         size: file.size,
+//         url: file.url,
+//       },
+//     });
+//   } catch (error) {
+//     console.error("File upload error:", error);
+//     res.status(500).json({ message: "Error uploading file" });
+//   }
+// };
 const uploadFile = async (req, res) => {
   try {
-    console.log("Upload request received:", {
-      file: req.file
-        ? {
-            originalname: req.file.originalname,
-            mimetype: req.file.mimetype,
-            size: req.file.size,
-            buffer: req.file.buffer ? "Buffer present" : "Buffer missing",
-          }
-        : "No file in request",
-    });
+    const userId = req.user.userId;
 
-    if (!req.file) {
-      return res.status(400).json({ message: "No file uploaded" });
+    if (!req.file || !req.file.buffer) {
+      return res.status(400).json({ message: "File not found" });
     }
 
-    if (!req.file.buffer || req.file.buffer.length === 0) {
-      return res.status(400).json({ message: "File buffer is empty" });
-    }
+    const file = req.file;
 
-    console.log("Attempting to upload to Cloudinary...");
-    const cloudinaryResponse = await uploadToCloudinary(req.file.buffer);
+    const uploadResult = await client.uploadFile(file.buffer, {
+      fileName: file.originalname,
+      contentType: file.mimetype,
+      store: "auto",
+      metadata: { userId: String(userId) },
+    }); // returns { uuid, cdnUrl, ... }
 
-    // Improved format extraction using mime-types
-    const format =
-      mime.extension(req.file.mimetype) ||
-      req.file.mimetype.split("/")[1] ||
-      "unknown";
-
-    const file = await prisma.file.create({
+    const uploadedFile = await prisma.file.create({
       data: {
-        name: req.file.originalname,
-        url: cloudinaryResponse.secure_url,
-        format: format,
-        publicId: cloudinaryResponse.public_id,
-        size: req.file.size,
-        ownerId: req.user.userId,
+        publicId: uploadResult.uuid,
+        name: file.originalname,
+        url: uploadResult.cdnUrl,
+        format: file.mimetype.split("/")[1],
+        size: file.size,
+        ownerId: userId,
+        isDeleted: false,
       },
     });
+
     res.status(200).json({
       message: "File uploaded successfully",
       file: {
-        id: file.id,
-        name: file.name,
-        format: file.format,
-        size: file.size,
-        url: file.url,
+        id: uploadedFile.id,
+        name: uploadedFile.name,
+        format: uploadedFile.format,
+        size: uploadedFile.size,
+        url: uploadedFile.url,
+        publicId: uploadedFile.publicId,
       },
     });
   } catch (error) {
-    console.error("File upload error:", error);
+    console.error("Upload error:", error);
     res.status(500).json({ message: "Error uploading file" });
   }
 };
@@ -131,7 +185,7 @@ const getAllFiles = async (req, res) => {
     const hasPrevPage = page > 1;
 
     res.status(200).json({
-      message: "Files retrieved successfully", // Fixed typo: "Filed" -> "Files"
+      message: "Files retrieved successfully",
       data: {
         files,
         pagination: {
@@ -147,7 +201,6 @@ const getAllFiles = async (req, res) => {
   } catch (error) {
     console.error("Error fetching files", error);
     if (error.name === "ValidationError") {
-      // Fixed: == to ===
       return res.status(400).json({
         message: "Invalid query parameters",
         details: error.message,
@@ -175,19 +228,23 @@ const deleteFile = async (req, res) => {
         message: "File not found or you don't have permission",
       });
     }
+
     try {
-      await cloudinary.uploader.destroy(file.publicId);
-    } catch (cloudinaryError) {
-      console.error("Error deleting file", cloudinaryError);
+      // Delete from Uploadcare using UUID
+      await uploadcare.deleteFile(file.publicId);
+    } catch (uploadcareError) {
+      console.error("Error deleting file from Uploadcare:", uploadcareError);
       return res.status(500).json({
         message: "Error deleting file from storage",
       });
     }
+
     await prisma.file.delete({
       where: {
         id: fileId,
       },
     });
+
     res.json({
       message: "File deleted successfully",
       fileId: fileId,
@@ -285,13 +342,13 @@ const viewTrashFiles = async (req, res) => {
       skip,
       take: limit,
     });
+
     if (!trashFiles || trashFiles.length === 0) {
-      // Improved check
       return res.status(404).json({
-        // Changed to 404 for "not found"
         message: "No trash files found",
       });
     }
+
     const totalPages = Math.ceil(totalTrashFiles / limit);
     const hasNextPage = page < totalPages;
     const hasPrevPage = page > 1;
@@ -320,9 +377,10 @@ const viewTrashFiles = async (req, res) => {
 
 const downloadFile = async (req, res) => {
   try {
-    const userId = req.user.userId;
-    const fileId = req.params.fileId;
+    const userId = req.user.userId; // set by your auth middleware
+    const fileId = req.params.fileId; // INTERNAL Prisma file id from route param
 
+    // Fetch file record and validate access
     const file = await prisma.file.findFirst({
       where: {
         id: fileId,
@@ -337,59 +395,38 @@ const downloadFile = async (req, res) => {
       });
     }
 
-    // Log for debugging
-    console.log("File details for download:", {
-      publicId: file.publicId,
-      format: file.format,
-      name: file.name,
-    });
+    // file.publicId must be the Uploadcare UUID (e.g., '07c27115-bfa2-4dc4-a105-b23c12b0f152')
+    if (!file.publicId) {
+      return res
+        .status(400)
+        .json({ message: "File has no Uploadcare publicId (UUID) stored" });
+    }
 
-    // Generate signed URL params for private download
-    const timestamp = Math.floor(Date.now() / 1000); // Current time in seconds
-    const expiresIn = timestamp + 3600; // Expires in 1 hour
-    const paramsToSign = {
-      public_id: file.publicId, // No extension
-      timestamp: timestamp,
-      expires_at: expiresIn,
-      resource_type: "raw",
-      // type: "private",
-    };
+    // Build CDN base URL directly
+    const baseUrl = `https://ucarecdn.com/${file.publicId}/`;
 
-    // Sign the request with Cloudinary API secret
-    const signature = cloudinary.utils.api_sign_request(
-      paramsToSign,
-      cloudinary.config().api_secret
-    );
+    // Generate signed URL (expires in 1 hour)
+    const expires = Math.floor(Date.now() / 1000) + 3600; // Unix timestamp
+    const stringToSign = `${file.publicId}${expires}`;
+    const token = crypto
+      .createHmac("sha1", process.env.UPLOADCARE_SECRET_KEY)
+      .update(stringToSign)
+      .digest("hex");
 
-    // Build the signed URL with attachment flag to force download
-    const signedUrl = cloudinary.utils.private_download_url(
-      file.publicId,
-      file.format,
-      {
-        resource_type: "raw",
-        type: "private",
-        expires_at: expiresIn,
-        attachment: true,
-      }
-    );
+    const signedUrl = `${baseUrl}?token=${token}&expires=${expires}`;
 
-    // Log the URL for debugging
-    console.log("Generated signed Cloudinary URL:", signedUrl);
-
-    // Redirect to the signed URL for direct download
-    res.redirect(302, signedUrl);
+    // Force attachment filename on client
+    res.setHeader("Content-Disposition", `attachment; filename="${file.name}"`);
+    return res.redirect(302, signedUrl);
   } catch (error) {
     console.error("Download error details:", {
       message: error.message,
       stack: error.stack,
     });
-
-    if (!res.headersSent) {
-      res.status(500).json({
-        message: "Error processing download request",
-        details: error.message,
-      });
-    }
+    return res.status(500).json({
+      message: "Error processing download request",
+      details: error.message,
+    });
   }
 };
 
@@ -398,63 +435,48 @@ const viewFile = async (req, res) => {
     const userId = req.user.userId;
     const fileId = req.params.fileId;
 
+    // 1) Authorize and fetch file
     const file = await prisma.file.findFirst({
-      where: {
-        id: fileId,
-        ownerId: userId,
-        isDeleted: false,
-      },
+      where: { id: fileId, ownerId: userId, isDeleted: false },
     });
+
     if (!file) {
-      return res.status(400).json({
+      return res.status(404).json({
         message: "File not found or you don't have permission to view",
       });
     }
 
-    // Log for debugging
-    console.log("File details for view:", {
-      publicId: file.publicId,
-      format: file.format,
-      name: file.name,
-    });
+    if (!file.publicId) {
+      return res
+        .status(400)
+        .json({ message: "Missing Uploadcare UUID (publicId) on file record" });
+    }
 
-    // Generate signed URL for internal fetch (using private_download_url for secure access)
-    const timestamp = Math.floor(Date.now() / 1000); // Current time in seconds
-    const expiresAt = timestamp + 3600; // Expires in 1 hour
+    // 2) Build CDN URL directly from UUID
+    const baseUrl = `https://ucarecdn.com/${file.publicId}/`;
 
-    const signedUrl = cloudinary.utils.private_download_url(
-      file.publicId,
-      file.format,
-      {
-        resource_type: "raw",
-        type: "private",
-        expires_at: expiresAt,
-        attachment: false, // Attempt inline, but we'll override with headers
-      }
-    );
+    // 3) Optional: secure delivery via signed URL (expires in 1 hour)
+    const expires = Math.floor(Date.now() / 1000) + 3600;
+    const token = crypto
+      .createHmac("sha1", process.env.UPLOADCARE_SECRET_KEY)
+      .update(`${file.publicId}${expires}`)
+      .digest("hex");
 
-    // Log the internal signed URL for debugging
-    console.log(
-      "Generated internal signed Cloudinary URL for view:",
-      signedUrl
-    );
+    const signedUrl = `${baseUrl}?token=${token}&expires=${expires}`; // per secure delivery pattern
 
-    // Fetch the file from Cloudinary using the signed URL
-    const response = await axios({
-      method: "get",
-      url: signedUrl,
-      responseType: "stream", // Stream the response to avoid loading in memory
-    });
+    // 4) Stream the file inline
+    const response = await axios.get(signedUrl, { responseType: "stream" });
 
-    // Set headers for inline viewing
-    res.setHeader("Content-Disposition", `inline; filename="${file.name}"`); // Inline to render in tab
-    const mimeType = mime.lookup(file.format) || "application/octet-stream"; // Use mime-types for accuracy
-    res.setHeader("Content-Type", mimeType);
+    // Set headers for inline display
+    res.setHeader("Content-Disposition", `inline; filename="${file.name}"`);
+    const contentType =
+      mime.lookup(file.name) ||
+      mime.lookup(file.format) ||
+      "application/octet-stream";
+    res.setHeader("Content-Type", contentType);
 
-    // Stream the file content to the client
     response.data.pipe(res);
 
-    // Handle stream errors
     response.data.on("error", (err) => {
       console.error("Stream error during view:", err);
       if (!res.headersSent) {
@@ -466,14 +488,13 @@ const viewFile = async (req, res) => {
       message: error.message,
       stack: error.stack,
     });
-    if (!res.headersSent) {
-      res.status(500).json({
-        message: "Error generating view",
-        details: error.message,
-      });
-    }
+    res.status(500).json({
+      message: "Error generating view",
+      details: error.message,
+    });
   }
 };
+
 const renameFile = async (req, res) => {
   try {
     const userId = req.user.userId;
@@ -528,61 +549,150 @@ const renameFile = async (req, res) => {
     });
   }
 };
+
+function authHeader() {
+  return `Uploadcare.Simple ${process.env.UPLOADCARE_PUBLIC_KEY}:${process.env.UPLOADCARE_SECRET_KEY}`;
+}
+
+async function waitForConversion(
+  token,
+  auth,
+  { timeoutMs = 30000, intervalMs = 1000 } = {}
+) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    const url = `https://api.uploadcare.com/convert/document/status/${token}/`;
+    const resp = await axios.get(url, {
+      headers: {
+        Accept: "application/vnd.uploadcare-v0.7+json",
+        "Content-Type": "application/json",
+        Authorization: auth,
+      },
+      validateStatus: () => true,
+    });
+
+    if (resp.status >= 400)
+      throw new Error(
+        `Status check HTTP ${resp.status}: ${JSON.stringify(resp.data)}`
+      );
+
+    const status = resp.data?.status;
+    if (status === "finished") return resp.data;
+    if (status === "failed")
+      throw new Error(
+        `Document conversion failed: ${JSON.stringify(resp.data)}`
+      );
+
+    await new Promise((r) => setTimeout(r, intervalMs));
+  }
+  throw new Error("Document conversion timed out");
+}
+
 const getPdfThumbnail = async (req, res) => {
   try {
-    const fileId = req.params.fileId;
+    const { fileId } = req.params;
     const userId = req.user.userId;
 
-    // Get the file details from the database
     const file = await prisma.file.findFirst({
-      where: {
-        id: fileId,
-        ownerId: userId,
-        isDeleted: false,
+      where: { id: fileId, ownerId: userId, isDeleted: false },
+    });
+
+    if (!file)
+      return res
+        .status(404)
+        .json({ message: "File not found or no permission" });
+
+    if (!file.publicId)
+      return res
+        .status(400)
+        .json({ message: "Missing Uploadcare UUID (publicId)" });
+
+    if ((file.format || "").toLowerCase() !== "pdf") {
+      return res.status(400).json({ message: "File is not a PDF" });
+    }
+
+    // Optional sanity check: ensure UUID looks like a UUID
+    if (!/^[0-9a-f-]{36}$/i.test(file.publicId)) {
+      return res
+        .status(400)
+        .json({ message: "Invalid Uploadcare UUID format in publicId" });
+    }
+
+    const auth = authHeader();
+
+    // Use the CDN URL format for document conversion as shown in Uploadcare docs
+    // This converts the first page of the PDF to JPG format
+    const conversionPath = `https://ucarecdn.com/${file.publicId}/document/-/format/jpg/-/page/1/`;
+
+    const convertResp = await axios.post(
+      "https://api.uploadcare.com/convert/document/",
+      {
+        paths: [conversionPath],
+        store: "1",
       },
-    });
-    if (!file) {
-      return res.status(400).json({
-        message: "File not found",
-      });
-    }
-    if (file.format.toLowerCase() !== "pdf") {
-      return res.status(400).json({
-        message: "File is not a pdf",
-      });
-    }
-
-    const thumbnailUrl = cloudinary.url(file.publicId, {
-      // No .jpg here
-      resource_type: "image", // Treat as image for transformations
-      transformation: [
-        {
-          width: 300,
-          crop: "fill",
-          page: 1,
-          quality: "auto",
-          fetch_format: "auto",
+      {
+        headers: {
+          Accept: "application/vnd.uploadcare-v0.7+json",
+          "Content-Type": "application/json",
+          Authorization: auth,
         },
-      ],
-      format: "jpg", // Output as JPG
-      secure: true, // HTTPS
-      // No sign_url, expires_at, or type: "private" — for public access
-    });
+        validateStatus: () => true,
+      }
+    );
 
-    // Log for debugging
-    console.log("Generated thumbnail URL:", thumbnailUrl);
+    if (convertResp.status >= 400) {
+      return res.status(502).json({
+        message: "Uploadcare convert API error",
+        details: { status: convertResp.status, data: convertResp.data },
+      });
+    }
 
-    res.status(200).json({
+    const first = convertResp.data?.result?.[0];
+    if (!first?.token) {
+      // If result is empty or problems exist, bubble it up to help debug
+      return res.status(500).json({
+        message: "Unexpected conversion response",
+        details: convertResp.data,
+      });
+    }
+
+    const statusData = await waitForConversion(first.token, auth);
+
+    // Handle both array and object result formats
+    let thumbnailUuid;
+    if (Array.isArray(statusData?.result)) {
+      // Array format: result[0].uuid
+      thumbnailUuid = statusData.result[0]?.uuid;
+    } else {
+      // Object format: result.uuid
+      thumbnailUuid = statusData?.result?.uuid;
+    }
+
+    if (!thumbnailUuid) {
+      return res.status(500).json({
+        message: "Conversion finished without result UUID",
+        details: statusData,
+      });
+    }
+    const thumbnailUrl = `https://ucarecdn.com/${thumbnailUuid}/`;
+
+    // Optional: consistently small preview
+    // const thumbnailUrl = `https://ucarecdn.com/${thumbnailUuid}/-/preview/300x300/`;
+
+    return res.status(200).json({
+      message: "PDF thumbnail generated",
+      thumbnailUuid,
       thumbnailUrl,
-      originalName: file.name,
-      format: file.format,
+      format: "jpeg",
     });
   } catch (error) {
     console.error("PDF thumbnail generation error:", error);
-    res.status(500).json({ message: "Error generating PDF thumbnail" });
+    return res.status(500).json({
+      message: "Error generating PDF thumbnail",
+      details: error.message,
+    });
   }
 };
-
 module.exports = {
   uploadFile,
   getAllFiles,
