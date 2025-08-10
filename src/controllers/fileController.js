@@ -6,6 +6,7 @@ const axios = require("axios");
 const { REFUSED } = require("dns");
 const crypto = require("crypto");
 const { UploadClient } = require("@uploadcare/upload-client");
+const { error } = require("console");
 const uploadcare = require("uploadcare")(
   process.env.UPLOADCARE_PUBLIC_KEY,
   process.env.UPLOADCARE_SECRET_KEY
@@ -137,126 +138,186 @@ async function generateThumbnailForPdf(pdfUuid) {
   return thumbnailUuid;
 }
 
-const uploadFile = async (req, res) => {
+// Unified upload function that handles both single and multiple files
+const uploadFiles = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    if (!req.file) {
-      return res.status(400).json({ message: "File not found" });
+    // Handle files from the unified 'files' field (can be single or multiple)
+    let filesToProcess = [];
+
+    if (req.files && Array.isArray(req.files) && req.files.length > 0) {
+      // Files uploaded via 'files' field (single or multiple)
+      filesToProcess = req.files;
+    } else {
+      return res.status(400).json({ message: "No files provided" });
     }
 
-    const file = req.file;
+    console.log(`Processing ${filesToProcess.length} file(s) for upload`);
 
-    if (!file.buffer || !(file.buffer instanceof Buffer)) {
-      return res.status(400).json({
-        message: "Invalid file buffer",
-        debug: {
-          hasBuffer: !!file.buffer,
-          bufferType: file.buffer ? typeof file.buffer : "undefined",
-          isBuffer: file.buffer instanceof Buffer,
-        },
-      });
-    }
+    const uploadResults = [];
+    const errors = [];
 
-    // Upload to Uploadcare
-    const uploadResult = await client.uploadFile(file.buffer, {
-      fileName: file.originalname,
-      contentType: file.mimetype,
-      store: "auto",
-      metadata: { userId: String(userId) },
-    });
+    // Process each file individually
+    for (let i = 0; i < filesToProcess.length; i++) {
+      const file = filesToProcess[i];
 
-    console.log("File uploaded to Uploadcare:", {
-      uuid: uploadResult.uuid,
-      mimetype: file.mimetype,
-    });
-
-    // Save initial file record
-    let uploadedFile = await prisma.file.create({
-      data: {
-        publicId: uploadResult.uuid,
-        name: file.originalname,
-        url: uploadResult.cdnUrl,
-        format: file.mimetype.split("/")[1],
-        size: file.size,
-        ownerId: userId,
-        isDeleted: false,
-      },
-    });
-
-    console.log("File saved to database with ID:", uploadedFile.id);
-
-    // Generate thumbnail for PDFs automatically
-    if (file.mimetype === "application/pdf") {
       try {
         console.log(
-          "PDF detected, generating thumbnail for UUID:",
-          uploadResult.uuid
+          `Processing file ${i + 1}/${filesToProcess.length}: ${
+            file.originalname
+          }`
         );
-        // Ensure the uploaded PDF is fully ready before requesting conversion
-        try {
-          const auth = authHeader();
-          await waitForUploadReady(uploadResult.uuid, auth, {
-            timeoutMs: 60000,
-            intervalMs: 1000,
-          });
-        } catch (readinessError) {
-          console.warn(
-            "Uploadcare file not ready yet, proceeding may fail:",
-            readinessError?.message || readinessError
-          );
-        }
-        const thumbnailUuid = await generateThumbnailForPdf(uploadResult.uuid);
 
-        // Update file record with thumbnail info
-        uploadedFile = await prisma.file.update({
-          where: { id: uploadedFile.id },
+        // Validate file buffer
+        if (!file.buffer || !(file.buffer instanceof Buffer)) {
+          errors.push({
+            fileName: file.originalname,
+            error: "Invalid file buffer",
+          });
+          continue;
+        }
+
+        // Upload to Uploadcare
+        const uploadResult = await client.uploadFile(file.buffer, {
+          fileName: file.originalname,
+          contentType: file.mimetype,
+          store: "auto",
+          metadata: { userId: String(userId) },
+        });
+
+        console.log("File uploaded to Uploadcare:", {
+          uuid: uploadResult.uuid,
+          mimetype: file.mimetype,
+        });
+
+        // Save initial file record
+        let uploadedFile = await prisma.file.create({
           data: {
-            thumbnailUuid: thumbnailUuid,
-            thumbnailUrl: `https://ucarecdn.com/${thumbnailUuid}/`,
+            publicId: uploadResult.uuid,
+            name: file.originalname,
+            url: uploadResult.cdnUrl,
+            format: file.mimetype.split("/")[1],
+            size: file.size,
+            ownerId: userId,
+            isDeleted: false,
           },
         });
-        console.log(
-          "Thumbnail generated and saved successfully:",
-          thumbnailUuid
-        );
-      } catch (thumbnailError) {
-        console.error("Thumbnail generation failed:", thumbnailError);
-        console.error("Thumbnail error stack:", thumbnailError.stack);
-        // Fallback: use Uploadcare on-the-fly preview of page 1 if conversion fails
-        try {
-          const fallbackUrl = `https://ucarecdn.com/${uploadResult.uuid}/-/preview/300x300/`;
-          uploadedFile = await prisma.file.update({
-            where: { id: uploadedFile.id },
-            data: {
-              thumbnailUrl: fallbackUrl,
-            },
-          });
-          console.log("Applied fallback thumbnail URL:", fallbackUrl);
-        } catch (fallbackErr) {
-          console.warn(
-            "Failed to set fallback thumbnail:",
-            fallbackErr?.message || fallbackErr
-          );
+
+        console.log("File saved to database with ID:", uploadedFile.id);
+
+        // Generate thumbnail for PDFs automatically
+        if (file.mimetype === "application/pdf") {
+          try {
+            console.log(
+              "PDF detected, generating thumbnail for UUID:",
+              uploadResult.uuid
+            );
+            // Ensure the uploaded PDF is fully ready before requesting conversion
+            try {
+              const auth = authHeader();
+              await waitForUploadReady(uploadResult.uuid, auth, {
+                timeoutMs: 60000,
+                intervalMs: 1000,
+              });
+            } catch (readinessError) {
+              console.warn(
+                "Uploadcare file not ready yet, proceeding may fail:",
+                readinessError?.message || readinessError
+              );
+            }
+            const thumbnailUuid = await generateThumbnailForPdf(
+              uploadResult.uuid
+            );
+
+            // Update file record with thumbnail info
+            uploadedFile = await prisma.file.update({
+              where: { id: uploadedFile.id },
+              data: {
+                thumbnailUuid: thumbnailUuid,
+                thumbnailUrl: `https://ucarecdn.com/${thumbnailUuid}/`,
+              },
+            });
+            console.log(
+              "Thumbnail generated and saved successfully:",
+              thumbnailUuid
+            );
+          } catch (thumbnailError) {
+            console.error("Thumbnail generation failed:", thumbnailError);
+            console.error("Thumbnail error stack:", thumbnailError.stack);
+            // Fallback: use Uploadcare on-the-fly preview of page 1 if conversion fails
+            try {
+              const fallbackUrl = `https://ucarecdn.com/${uploadResult.uuid}/-/preview/300x300/`;
+              uploadedFile = await prisma.file.update({
+                where: { id: uploadedFile.id },
+                data: {
+                  thumbnailUrl: fallbackUrl,
+                },
+              });
+              console.log("Applied fallback thumbnail URL:", fallbackUrl);
+            } catch (fallbackErr) {
+              console.warn(
+                "Failed to set fallback thumbnail:",
+                fallbackErr?.message || fallbackErr
+              );
+            }
+            // Don't fail the upload if thumbnail generation fails
+          }
         }
-        // Don't fail the upload if thumbnail generation fails
+
+        uploadResults.push({
+          id: uploadedFile.id,
+          name: uploadedFile.name,
+          format: uploadedFile.format,
+          size: uploadedFile.size,
+          url: uploadedFile.url,
+          thumbnailUrl: uploadedFile.thumbnailUrl || null,
+        });
+      } catch (fileError) {
+        console.error(`Error processing file ${file.originalname}:`, fileError);
+        errors.push({
+          fileName: file.originalname,
+          error: fileError.message,
+        });
       }
     }
 
-    res.status(200).json({
-      message: "File uploaded successfully",
-      file: {
-        id: uploadedFile.id,
-        name: uploadedFile.name,
-        format: uploadedFile.format,
-        size: uploadedFile.size,
-        url: uploadedFile.url,
-        thumbnailUrl: uploadedFile.thumbnailUrl || null,
-      },
-    });
+    // Return results with appropriate response format
+    if (filesToProcess.length === 1) {
+      // Single file response format
+      if (uploadResults.length === 1) {
+        return res.status(200).json({
+          message: "File uploaded successfully",
+          file: uploadResults[0],
+        });
+      } else {
+        // Single file failed
+        return res.status(400).json({
+          message: "File upload failed",
+          error: errors[0]?.error || "Unknown error",
+        });
+      }
+    } else {
+      // Multiple files response format
+      const response = {
+        message: `Processed ${filesToProcess.length} files`,
+        summary: {
+          total: filesToProcess.length,
+          successful: uploadResults.length,
+          failed: errors.length,
+        },
+        files: uploadResults,
+      };
+
+      if (errors.length > 0) {
+        response.errors = errors;
+      }
+
+      return res.status(200).json(response);
+    }
   } catch (error) {
     console.error("Upload error:", error);
-    res.status(500).json({ message: "Error uploading file" });
+    res.status(500).json({ message: "Error uploading files" });
   }
 };
 
@@ -267,6 +328,8 @@ const getAllFiles = async (req, res) => {
     const limit = parseInt(req.query.limit || 10);
     const searchQuery = req.query.search;
     const fileType = req.query.file_type;
+
+    const isFavorite = req.query.starred === "true";
 
     const skip = (page - 1) * limit;
 
@@ -280,6 +343,7 @@ const getAllFiles = async (req, res) => {
           mode: "insensitive",
         },
       }),
+      ...(isFavorite && { isFavorite: true }),
     };
 
     const totalFiles = await prisma.file.count({
@@ -300,6 +364,8 @@ const getAllFiles = async (req, res) => {
         format: true,
         size: true,
         thumbnailUrl: true,
+        isFavorite: true,
+        favoriteAt: true,
       },
       skip,
       take: limit,
@@ -331,6 +397,115 @@ const getAllFiles = async (req, res) => {
         details: error.message,
       });
     }
+    res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
+const getImageFiles = async (req, res) => {
+  const userId = req.user.userId;
+  const page = parseInt(req.query.page || 1);
+  const limit = parseInt(req.query.limit || 10);
+  const skip = (page - 1) * limit;
+
+  const whereClause = {
+    ownerId: userId,
+    format: {
+      in: ["jpeg", "jpg", "png", "gif", "bmp", "webp", "svg", "tiff", "ico"],
+    },
+    isDeleted: false,
+  };
+
+  if (req.query.starred !== undefined) {
+    whereClause.isFavorite = req.query.starred === "true";
+  }
+
+  const imageFiles = await prisma.file.findMany({
+    where: whereClause,
+    orderBy: {
+      createdAt: "desc",
+    },
+    select: {
+      id: true,
+      name: true,
+      format: true,
+      size: true,
+      createdAt: true,
+      url: true,
+      isFavorite: true,
+      favoriteAt: true,
+    },
+    skip,
+    take: limit,
+  });
+
+  if (!imageFiles || imageFiles.length === 0) {
+    return res.status(404).json({
+      message: "No image files found",
+    });
+  }
+  const totalFiles = await prisma.file.count({
+    where: whereClause,
+  });
+  const totalPages = Math.ceil(totalFiles / limit);
+  const hasNextPage = page < totalPages;
+  const hasPrevPage = page > 1;
+  res.status(200).json({
+    message: "Image files retrieved successfully",
+    count: totalFiles,
+    data: {
+      imageFiles,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalFiles,
+        hasNextPage,
+        hasPrevPage,
+        limit,
+      },
+    },
+  });
+};
+const toggleStarFile = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const fileId = req.params.fileId;
+
+    const existingFile = await prisma.file.findFirst({
+      where: {
+        id: parseInt(fileId),
+        ownerId: userId,
+        isDeleted: false,
+      },
+      select: {
+        id: true,
+        starred: true,
+        name: true,
+      },
+    });
+
+    if (!existingFile) {
+      return res.status(404).json({
+        message: "File not found",
+      });
+    }
+    const updatedFile = await prisma.file.update({
+      where: {
+        id: parseInt(fileId),
+      },
+      data: {
+        isFavorite: !existingFile.isFavorite,
+        favoriteAt: existingFile.isFavorite ? null : new Date(),
+      },
+    });
+    res.status(200).json({
+      message: updatedFile.isFavorite
+        ? "File favorited successfully"
+        : "File unfavorited successfully",
+      file: updatedFile,
+    });
+  } catch (error) {
+    console.error("Error toggling file star status:", error);
     res.status(500).json({
       message: "Internal server error",
     });
@@ -385,45 +560,79 @@ const deleteFile = async (req, res) => {
 const softDeleteFiles = async (req, res) => {
   try {
     const userId = req.user.userId;
-    const fileId = req.params.fileId;
-
-    const file = await prisma.file.findFirst({
-      where: {
-        id: fileId,
-        ownerId: userId,
-        isDeleted: false,
-      },
-    });
-
-    if (!file) {
-      return res.status(404).json({
-        message: "File not found or you don't have appropriate permission",
+    let fileIds = [];
+    if (req.params.fileId) {
+      fileIds = [req.params.fileId];
+    } else if (req.body.fileIds && Array.isArray(req.body.fileIds)) {
+      fileIds = req.body.fileIds;
+    } else {
+      return res.status(400).json({
+        message: "No file IDs provided",
       });
     }
+    let results = [];
+    let errors = [];
 
-    const updatedFile = await prisma.file.update({
-      where: {
-        id: fileId,
+    for (fileId of fileIds) {
+      try {
+        const file = await prisma.file.findFirst({
+          where: {
+            id: fileId,
+            ownerId: userId,
+            isDeleted: false,
+          },
+        });
+        if (!file) {
+          errors.push({ fileId, error: "File not found or already deleted" });
+          continue;
+        }
+        const updatedFile = await prisma.file.update({
+          where: {
+            id: fileId,
+          },
+          data: {
+            isDeleted: true,
+            deletedAt: new Date(),
+            deleteById: userId,
+          },
+        });
+        results.push({
+          id: fileId,
+          name: updatedFile.name,
+          deletedAt: updatedFile.deletedAt,
+        });
+      } catch (fileError) {
+        errors.push({
+          fileId,
+          error: fileError.message,
+        });
+      }
+    }
+    const response = {
+      message:
+        fileIds.length === 1
+          ? "File moved to trash"
+          : `Processed ${fileIds.length} files`,
+      summary: {
+        total: fileIds.length,
+        successful: results.length,
+        failed: errors.length,
       },
-      data: {
-        isDeleted: true,
-        deletedAt: new Date(),
-        deleteById: userId,
-      },
-    });
+      files: results,
+    };
+    if (errors.length > 0) {
+      response.errors = errors;
+    }
 
-    res.status(200).json({
-      message: "File moved to trash",
-      file: {
-        id: updatedFile.id,
-        name: updatedFile.name,
-        deletedAt: updatedFile.deletedAt,
-      },
-    });
+    if (fileIds.length === 1 && results.length === 1) {
+      response.file = results[0];
+    }
+
+    return res.status(200).json(response);
   } catch (error) {
-    console.error("Soft delete error:", error);
+    console.error("Internal server error:", error);
     res.status(500).json({
-      message: "Error moving file to trash",
+      message: "Could not process request",
     });
   }
 };
@@ -895,7 +1104,7 @@ const restoreFile = async (req, res) => {
   }
 };
 module.exports = {
-  uploadFile,
+  uploadFiles,
   getAllFiles,
   deleteFile,
   softDeleteFiles,
@@ -906,4 +1115,6 @@ module.exports = {
   getPdfThumbnail,
   permanentDelete,
   restoreFile,
+  toggleStarFile,
+  getImageFiles,
 };

@@ -4,8 +4,29 @@ const multer = require("multer");
 const ALLOWED_FILE_TYPES = {
   "image/jpeg": "jpg",
   "image/png": "png",
+  "image/jpg": "jpg",
+  "image/webp": "webp",
+  "image/avif": "avif",
+  "image/heic": "heic",
+  "image/heif": "heif",
+  "image/heif-sequence": "heif-sequence",
+  "image/heic-sequence": "heic-sequence",
+  "image/heif-sequence": "heif-sequence",
+  "image/heic-sequence": "heic-sequence",
+  "text/plain": "txt",
+  "text/csv": "csv",
+  "text/tab-separated-values": "tsv",
+  "text/tab-separated-values": "tsv",
   "image/gif": "gif",
   "application/pdf": "pdf",
+  "application/msword": "doc",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+    "docx",
+  "application/vnd.ms-excel": "xls",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "xlsx",
+  "application/vnd.ms-powerpoint": "ppt",
+  "application/vnd.openxmlformats-officedocument.presentationml.presentation":
+    "pptx",
 };
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const storage = multer.memoryStorage();

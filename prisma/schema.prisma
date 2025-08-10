@@ -26,6 +26,8 @@ model File{
   url String
   size Int
   publicId String
+  isFavorite Boolean @default(false)
+  favoriteAt DateTime?
   format String
    thumbnailUuid String?  
   thumbnailUrl  String?  
