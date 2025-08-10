@@ -1,9 +1,8 @@
 const { PrismaClient } = require("../generated/prisma");
-const cloudinary = require("../config/cloudinary");
 const { Readable } = require("stream");
-const mime = require("mime-types"); // Add this dependency: npm install mime-types
+const mime = require("mime-types");
 const { sign } = require("crypto");
-const axios = require("axios"); // Add this at the top of fileController.js if not already
+const axios = require("axios");
 const { REFUSED } = require("dns");
 const crypto = require("crypto");
 const { UploadClient } = require("@uploadcare/upload-client");
@@ -17,97 +16,163 @@ const client = new UploadClient({
 
 const prisma = new PrismaClient();
 
-const uploadToCloudinary = (buffer) => {
-  return new Promise((resolve, reject) => {
-    const stream = cloudinary.uploader.upload_stream(
-      {
-        resource_type: "raw",
-        // type: "private",
+function authHeader() {
+  return `Uploadcare.Simple ${process.env.UPLOADCARE_PUBLIC_KEY}:${process.env.UPLOADCARE_SECRET_KEY}`;
+}
+
+async function waitForConversion(
+  token,
+  auth,
+  { timeoutMs = 30000, intervalMs = 1000 } = {}
+) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    const url = `https://api.uploadcare.com/convert/document/status/${token}/`;
+    const resp = await axios.get(url, {
+      headers: {
+        Accept: "application/vnd.uploadcare-v0.7+json",
+        "Content-Type": "application/json",
+        Authorization: auth,
       },
-      (error, result) => {
-        if (error) reject(error);
-        else resolve(result);
-      }
-    );
+      validateStatus: () => true,
+    });
 
-    const bufferStream = Readable.from(buffer);
-    bufferStream.pipe(stream);
+    if (resp.status >= 400)
+      throw new Error(
+        `Status check HTTP ${resp.status}: ${JSON.stringify(resp.data)}`
+      );
+
+    const status = resp.data?.status;
+    if (status === "finished") return resp.data;
+    if (status === "failed")
+      throw new Error(
+        `Document conversion failed: ${JSON.stringify(resp.data)}`
+      );
+
+    await new Promise((r) => setTimeout(r, intervalMs));
+  }
+  throw new Error("Document conversion timed out");
+}
+
+// Wait until the freshly uploaded file becomes ready on Uploadcare
+// Some conversions fail if started immediately after upload because the source isn't ready yet
+async function waitForUploadReady(
+  uuid,
+  auth,
+  { timeoutMs = 60000, intervalMs = 1000 } = {}
+) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    const url = `https://api.uploadcare.com/files/${uuid}/`;
+    const resp = await axios.get(url, {
+      headers: {
+        Accept: "application/vnd.uploadcare-v0.7+json",
+        Authorization: auth,
+      },
+      validateStatus: () => true,
+    });
+
+    if (resp.status >= 400)
+      throw new Error(
+        `File status HTTP ${resp.status}: ${JSON.stringify(resp.data)}`
+      );
+
+    if (resp.data?.is_ready) return resp.data;
+
+    await new Promise((r) => setTimeout(r, intervalMs));
+  }
+  throw new Error("Source file not ready in time");
+}
+
+async function generateThumbnailForPdf(pdfUuid) {
+  console.log("Starting thumbnail generation for UUID:", pdfUuid);
+
+  const auth = authHeader();
+  const conversionPath = `https://ucarecdn.com/${pdfUuid}/document/-/format/jpg/-/page/1/`;
+
+  console.log("Conversion path:", conversionPath);
+
+  const convertResp = await axios.post(
+    "https://api.uploadcare.com/convert/document/",
+    { paths: [conversionPath], store: "1" },
+    {
+      headers: {
+        Accept: "application/vnd.uploadcare-v0.7+json",
+        "Content-Type": "application/json",
+        Authorization: auth,
+      },
+    }
+  );
+
+  console.log("Convert response:", JSON.stringify(convertResp.data, null, 2));
+
+  const token = convertResp.data?.result?.[0]?.token;
+  if (!token) {
+    console.error("No conversion token received:", convertResp.data);
+    throw new Error("No conversion token received");
+  }
+
+  console.log("Got conversion token:", token);
+
+  const statusData = await waitForConversion(token, auth, {
+    timeoutMs: 120000,
+    intervalMs: 1500,
   });
-};
 
-// const uploadFile = async (req, res) => {
-//   try {
-//     console.log("Upload request received:", {
-//       file: req.file
-//         ? {
-//             originalname: req.file.originalname,
-//             mimetype: req.file.mimetype,
-//             size: req.file.size,
-//             buffer: req.file.buffer ? "Buffer present" : "Buffer missing",
-//           }
-//         : "No file in request",
-//     });
+  console.log("Final status data:", JSON.stringify(statusData, null, 2));
 
-//     if (!req.file) {
-//       return res.status(400).json({ message: "No file uploaded" });
-//     }
+  let thumbnailUuid;
+  if (Array.isArray(statusData?.result)) {
+    thumbnailUuid = statusData.result[0]?.uuid;
+  } else {
+    thumbnailUuid = statusData?.result?.uuid;
+  }
 
-//     if (!req.file.buffer || req.file.buffer.length === 0) {
-//       return res.status(400).json({ message: "File buffer is empty" });
-//     }
+  if (!thumbnailUuid) {
+    console.error("No thumbnail UUID received:", statusData);
+    throw new Error("No thumbnail UUID received");
+  }
 
-//     console.log("Attempting to upload to Cloudinary...");
-//     const cloudinaryResponse = await uploadToCloudinary(req.file.buffer);
+  console.log("Generated thumbnail UUID:", thumbnailUuid);
+  return thumbnailUuid;
+}
 
-//     // Improved format extraction using mime-types
-//     const format =
-//       mime.extension(req.file.mimetype) ||
-//       req.file.mimetype.split("/")[1] ||
-//       "unknown";
-
-//     const file = await prisma.file.create({
-//       data: {
-//         name: req.file.originalname,
-//         url: cloudinaryResponse.secure_url,
-//         format: format,
-//         publicId: cloudinaryResponse.public_id,
-//         size: req.file.size,
-//         ownerId: req.user.userId,
-//       },
-//     });
-//     res.status(200).json({
-//       message: "File uploaded successfully",
-//       file: {
-//         id: file.id,
-//         name: file.name,
-//         format: file.format,
-//         size: file.size,
-//         url: file.url,
-//       },
-//     });
-//   } catch (error) {
-//     console.error("File upload error:", error);
-//     res.status(500).json({ message: "Error uploading file" });
-//   }
-// };
 const uploadFile = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    if (!req.file || !req.file.buffer) {
+    if (!req.file) {
       return res.status(400).json({ message: "File not found" });
     }
 
     const file = req.file;
 
+    if (!file.buffer || !(file.buffer instanceof Buffer)) {
+      return res.status(400).json({
+        message: "Invalid file buffer",
+        debug: {
+          hasBuffer: !!file.buffer,
+          bufferType: file.buffer ? typeof file.buffer : "undefined",
+          isBuffer: file.buffer instanceof Buffer,
+        },
+      });
+    }
+
+    // Upload to Uploadcare
     const uploadResult = await client.uploadFile(file.buffer, {
       fileName: file.originalname,
       contentType: file.mimetype,
       store: "auto",
       metadata: { userId: String(userId) },
-    }); // returns { uuid, cdnUrl, ... }
+    });
 
-    const uploadedFile = await prisma.file.create({
+    console.log("File uploaded to Uploadcare:", {
+      uuid: uploadResult.uuid,
+      mimetype: file.mimetype,
+    });
+
+    // Save initial file record
+    let uploadedFile = await prisma.file.create({
       data: {
         publicId: uploadResult.uuid,
         name: file.originalname,
@@ -119,6 +184,65 @@ const uploadFile = async (req, res) => {
       },
     });
 
+    console.log("File saved to database with ID:", uploadedFile.id);
+
+    // Generate thumbnail for PDFs automatically
+    if (file.mimetype === "application/pdf") {
+      try {
+        console.log(
+          "PDF detected, generating thumbnail for UUID:",
+          uploadResult.uuid
+        );
+        // Ensure the uploaded PDF is fully ready before requesting conversion
+        try {
+          const auth = authHeader();
+          await waitForUploadReady(uploadResult.uuid, auth, {
+            timeoutMs: 60000,
+            intervalMs: 1000,
+          });
+        } catch (readinessError) {
+          console.warn(
+            "Uploadcare file not ready yet, proceeding may fail:",
+            readinessError?.message || readinessError
+          );
+        }
+        const thumbnailUuid = await generateThumbnailForPdf(uploadResult.uuid);
+
+        // Update file record with thumbnail info
+        uploadedFile = await prisma.file.update({
+          where: { id: uploadedFile.id },
+          data: {
+            thumbnailUuid: thumbnailUuid,
+            thumbnailUrl: `https://ucarecdn.com/${thumbnailUuid}/`,
+          },
+        });
+        console.log(
+          "Thumbnail generated and saved successfully:",
+          thumbnailUuid
+        );
+      } catch (thumbnailError) {
+        console.error("Thumbnail generation failed:", thumbnailError);
+        console.error("Thumbnail error stack:", thumbnailError.stack);
+        // Fallback: use Uploadcare on-the-fly preview of page 1 if conversion fails
+        try {
+          const fallbackUrl = `https://ucarecdn.com/${uploadResult.uuid}/-/preview/300x300/`;
+          uploadedFile = await prisma.file.update({
+            where: { id: uploadedFile.id },
+            data: {
+              thumbnailUrl: fallbackUrl,
+            },
+          });
+          console.log("Applied fallback thumbnail URL:", fallbackUrl);
+        } catch (fallbackErr) {
+          console.warn(
+            "Failed to set fallback thumbnail:",
+            fallbackErr?.message || fallbackErr
+          );
+        }
+        // Don't fail the upload if thumbnail generation fails
+      }
+    }
+
     res.status(200).json({
       message: "File uploaded successfully",
       file: {
@@ -127,7 +251,7 @@ const uploadFile = async (req, res) => {
         format: uploadedFile.format,
         size: uploadedFile.size,
         url: uploadedFile.url,
-        publicId: uploadedFile.publicId,
+        thumbnailUrl: uploadedFile.thumbnailUrl || null,
       },
     });
   } catch (error) {
@@ -175,6 +299,7 @@ const getAllFiles = async (req, res) => {
         updatedAt: true,
         format: true,
         size: true,
+        thumbnailUrl: true,
       },
       skip,
       take: limit,
@@ -656,7 +781,10 @@ const getPdfThumbnail = async (req, res) => {
       });
     }
 
-    const statusData = await waitForConversion(first.token, auth);
+    const statusData = await waitForConversion(first.token, auth, {
+      timeoutMs: 120000,
+      intervalMs: 1500,
+    });
 
     // Handle both array and object result formats
     let thumbnailUuid;

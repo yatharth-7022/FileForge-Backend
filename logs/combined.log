@@ -2843,3 +2843,330 @@
 {"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:44:52"}
 {"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:44:52"}
 {"address":"::","code":"EADDRINUSE","errno":-98,"level":"error","message":"Server failed to start: listen EADDRINUSE: address already in use :::5000","port":5000,"stack":"Error: listen EADDRINUSE: address already in use :::5000\n    at Server.setupListenHandle [as _listen2] (node:net:1908:16)\n    at listenInCluster (node:net:1965:12)\n    at Server.listen (node:net:2067:7)\n    at Function.listen (/home/yatharthDev/fileforge-backend/node_modules/express/lib/application.js:605:24)\n    at Object.<anonymous> (/home/yatharthDev/fileforge-backend/src/index.js:43:4)\n    at Module._compile (node:internal/modules/cjs/loader:1529:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)\n    at Module.load (node:internal/modules/cjs/loader:1275:32)\n    at Module._load (node:internal/modules/cjs/loader:1096:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)","syscall":"listen","timestamp":"2025-08-10 13:44:52"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:47:51"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:47:52"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:49:32"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:49:33"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:49:45"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:49:46"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:49:59"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:49:59"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:50:27"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:50:28"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-10 13:52:50","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":3823,"statusCode":200,"timestamp":"2025-08-10 13:52:53"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-10 13:54:03","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":25,"statusCode":200,"timestamp":"2025-08-10 13:54:03"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:55:30"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:55:30"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:55:41"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:55:41"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:56:33"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:56:33"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:56:53"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:56:53"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-10 13:57:15","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":7598,"statusCode":200,"timestamp":"2025-08-10 13:57:23"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-10 13:57:44","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":13,"statusCode":200,"timestamp":"2025-08-10 13:57:44"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 13:59:04"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 13:59:05"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:00:23"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:00:23"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:00:25"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:00:25"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:00:33"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:00:33"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:00:40"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:00:40"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:00:43"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:00:43"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-10 14:00:52","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":9151,"statusCode":200,"timestamp":"2025-08-10 14:01:02"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:02:13"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:02:14"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-10 14:03:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":123,"statusCode":200,"timestamp":"2025-08-10 14:03:19"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-10 14:03:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":20,"statusCode":200,"timestamp":"2025-08-10 14:03:19"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:03:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":150,"statusCode":200,"timestamp":"2025-08-10 14:03:20"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":13,"statusCode":200,"timestamp":"2025-08-10 14:03:20"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":181,"statusCode":200,"timestamp":"2025-08-10 14:03:20"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","query":{},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":31,"statusCode":200,"timestamp":"2025-08-10 14:03:20"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/caff7e80-9ddf-43c1-9b0a-5579ba65cbf7","query":{},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/658bb32d-5087-4cf9-b4fc-9a6d3e055433","query":{},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":26,"statusCode":200,"timestamp":"2025-08-10 14:03:20"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/0bf4b084-bce7-48d6-8ec9-fcc92f3e84fe","query":{},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/a2867b4f-50ce-4cdc-a9a3-ef68591669ca","query":{},"timestamp":"2025-08-10 14:03:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":5221,"statusCode":500,"timestamp":"2025-08-10 14:03:25"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/0abdad2c-cb11-464f-bfd4-aba33557137e","query":{},"timestamp":"2025-08-10 14:03:25","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","responseTime":12345,"statusCode":500,"timestamp":"2025-08-10 14:03:32"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:32","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":16,"statusCode":200,"timestamp":"2025-08-10 14:03:32"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-10 14:03:32","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/a2867b4f-50ce-4cdc-a9a3-ef68591669ca","responseTime":13460,"statusCode":200,"timestamp":"2025-08-10 14:03:33"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-10 14:03:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":503,"statusCode":500,"timestamp":"2025-08-10 14:03:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":20,"statusCode":200,"timestamp":"2025-08-10 14:03:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","query":{},"timestamp":"2025-08-10 14:03:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/caff7e80-9ddf-43c1-9b0a-5579ba65cbf7","responseTime":15288,"statusCode":200,"timestamp":"2025-08-10 14:03:35"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/view-file/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","query":{},"timestamp":"2025-08-10 14:03:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","responseTime":500,"statusCode":500,"timestamp":"2025-08-10 14:03:36"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":20,"statusCode":200,"timestamp":"2025-08-10 14:03:36"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/a2867b4f-50ce-4cdc-a9a3-ef68591669ca","query":{},"timestamp":"2025-08-10 14:03:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":3771,"statusCode":500,"timestamp":"2025-08-10 14:03:36"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":18,"statusCode":200,"timestamp":"2025-08-10 14:03:36"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/caff7e80-9ddf-43c1-9b0a-5579ba65cbf7","query":{},"timestamp":"2025-08-10 14:03:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/0abdad2c-cb11-464f-bfd4-aba33557137e","responseTime":12284,"statusCode":200,"timestamp":"2025-08-10 14:03:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-10 14:03:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","responseTime":3854,"statusCode":500,"timestamp":"2025-08-10 14:03:38"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":21,"statusCode":200,"timestamp":"2025-08-10 14:03:38"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/view-file/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","query":{},"timestamp":"2025-08-10 14:03:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":569,"statusCode":500,"timestamp":"2025-08-10 14:03:38"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/0abdad2c-cb11-464f-bfd4-aba33557137e","query":{},"timestamp":"2025-08-10 14:03:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","responseTime":422,"statusCode":500,"timestamp":"2025-08-10 14:03:38"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":24,"statusCode":200,"timestamp":"2025-08-10 14:03:38"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:03:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":25,"statusCode":200,"timestamp":"2025-08-10 14:03:38"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/658bb32d-5087-4cf9-b4fc-9a6d3e055433","responseTime":24740,"statusCode":200,"timestamp":"2025-08-10 14:03:45"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/658bb32d-5087-4cf9-b4fc-9a6d3e055433","query":{},"timestamp":"2025-08-10 14:03:45","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/0abdad2c-cb11-464f-bfd4-aba33557137e","responseTime":9402,"statusCode":200,"timestamp":"2025-08-10 14:03:47"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/0bf4b084-bce7-48d6-8ec9-fcc92f3e84fe","responseTime":30723,"statusCode":200,"timestamp":"2025-08-10 14:03:51"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/0bf4b084-bce7-48d6-8ec9-fcc92f3e84fe","query":{},"timestamp":"2025-08-10 14:03:51","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/caff7e80-9ddf-43c1-9b0a-5579ba65cbf7","responseTime":18895,"statusCode":200,"timestamp":"2025-08-10 14:03:55"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/658bb32d-5087-4cf9-b4fc-9a6d3e055433","responseTime":14920,"statusCode":200,"timestamp":"2025-08-10 14:04:00"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/a2867b4f-50ce-4cdc-a9a3-ef68591669ca","responseTime":29201,"statusCode":200,"timestamp":"2025-08-10 14:04:05"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/0bf4b084-bce7-48d6-8ec9-fcc92f3e84fe","responseTime":22262,"statusCode":200,"timestamp":"2025-08-10 14:04:13"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":12,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":14,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":13,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":13,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":19,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":16,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:05:57"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","query":{},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/4dab4a87-bdd8-47a0-b4bb-1ce46e75495d","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":21,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:05:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":13,"statusCode":200,"timestamp":"2025-08-10 14:05:59"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:06:30"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:06:30"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:07:06"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:07:06"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:07:11"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:07:11"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:07:43"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:07:43"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:07:49"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:07:49"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-10 14:08:18","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":40325,"statusCode":200,"timestamp":"2025-08-10 14:08:58"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":24,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":38,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/97bf90c5-d6ef-4743-a425-5705ec81e429","query":{},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":21,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:08:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:08:59"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/view-file/97bf90c5-d6ef-4743-a425-5705ec81e429","query":{},"timestamp":"2025-08-10 14:09:22","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/97bf90c5-d6ef-4743-a425-5705ec81e429","responseTime":23774,"statusCode":200,"timestamp":"2025-08-10 14:09:22"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/97bf90c5-d6ef-4743-a425-5705ec81e429","query":{},"timestamp":"2025-08-10 14:09:22","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-10 14:09:44","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/97bf90c5-d6ef-4743-a425-5705ec81e429","responseTime":21852,"statusCode":200,"timestamp":"2025-08-10 14:09:44"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":7281,"statusCode":200,"timestamp":"2025-08-10 14:09:51"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-10 14:12:15","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:12:15"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/a2867b4f-50ce-4cdc-a9a3-ef68591669ca","query":{},"timestamp":"2025-08-10 14:13:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/a2867b4f-50ce-4cdc-a9a3-ef68591669ca","responseTime":36,"statusCode":200,"timestamp":"2025-08-10 14:13:33"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:13:33"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:33"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:13:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":12,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","query":{},"timestamp":"2025-08-10 14:13:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:13:34"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/0abdad2c-cb11-464f-bfd4-aba33557137e","query":{},"timestamp":"2025-08-10 14:13:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/0abdad2c-cb11-464f-bfd4-aba33557137e","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:13:36"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:36"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:13:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:13:36"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":5,"statusCode":200,"timestamp":"2025-08-10 14:13:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:13:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:13:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:13:37"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/caff7e80-9ddf-43c1-9b0a-5579ba65cbf7","query":{},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/caff7e80-9ddf-43c1-9b0a-5579ba65cbf7","responseTime":12,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":13,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:13:39"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","responseTime":8054,"statusCode":500,"timestamp":"2025-08-10 14:13:42"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/pdf-thumbnail/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","query":{},"timestamp":"2025-08-10 14:13:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/view-file/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","query":{},"timestamp":"2025-08-10 14:13:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","responseTime":595,"statusCode":500,"timestamp":"2025-08-10 14:13:42"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/0bf4b084-bce7-48d6-8ec9-fcc92f3e84fe","query":{},"timestamp":"2025-08-10 14:13:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/0bf4b084-bce7-48d6-8ec9-fcc92f3e84fe","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:13:43"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:13:44"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:13:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:13:44"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:13:44"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:13:44"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:44"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:13:44"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:44"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/658bb32d-5087-4cf9-b4fc-9a6d3e055433","query":{},"timestamp":"2025-08-10 14:13:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/658bb32d-5087-4cf9-b4fc-9a6d3e055433","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:13:46"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:13:46"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:13:46"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:13:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:13:46"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":12,"statusCode":200,"timestamp":"2025-08-10 14:13:46"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:13:46"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:46"}
+{"level":"info","message":"Outgoing response for GET","path":"/pdf-thumbnail/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","responseTime":4960,"statusCode":500,"timestamp":"2025-08-10 14:13:47"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/view-file/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","query":{},"timestamp":"2025-08-10 14:13:47","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/d5e58cf2-fd0e-4e5a-b4d3-8a0594977896","responseTime":539,"statusCode":500,"timestamp":"2025-08-10 14:13:47"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming PUT request","path":"/api/soft-delete/97bf90c5-d6ef-4743-a425-5705ec81e429","query":{},"timestamp":"2025-08-10 14:13:49","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for PUT","path":"/soft-delete/97bf90c5-d6ef-4743-a425-5705ec81e429","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:13:49"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:49","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":18,"statusCode":200,"timestamp":"2025-08-10 14:13:49"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:13:49","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:13:49"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:49","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":14,"statusCode":200,"timestamp":"2025-08-10 14:13:49"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:49","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":22,"statusCode":200,"timestamp":"2025-08-10 14:13:49"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:13:49","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":200,"timestamp":"2025-08-10 14:13:49"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming POST request","path":"/api/upload-file","query":{},"timestamp":"2025-08-10 14:18:26","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload-file","responseTime":25362,"statusCode":200,"timestamp":"2025-08-10 14:18:52"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:18:52","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:18:52"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:18:52","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-10 14:18:52"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:18:52","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:18:52","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":11,"statusCode":200,"timestamp":"2025-08-10 14:18:52"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:18:52"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:18:52","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:18:52"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-10 14:19:05","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":56,"statusCode":200,"timestamp":"2025-08-10 14:19:05"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-10 14:19:05","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":3,"statusCode":200,"timestamp":"2025-08-10 14:19:05"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:19:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:19:06"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 14:19:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:19:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":200,"timestamp":"2025-08-10 14:19:06"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":39,"statusCode":200,"timestamp":"2025-08-10 14:19:06"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:19:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":200,"timestamp":"2025-08-10 14:19:06"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:19:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:19:06"}
+{"ip":"::ffff:127.0.0.1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-10 14:19:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 14:19:06"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-10 14:19:42"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-10 14:19:42"}
