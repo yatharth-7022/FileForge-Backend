@@ -2,6 +2,7 @@ const { PrismaClient } = require("../generated/prisma");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_EXPIRES_IN, JWT_SECRET } = require("../config/jwt");
+const MESSAGES = require("../constants/messages");
 
 const prisma = new PrismaClient();
 
@@ -14,7 +15,7 @@ const register = async (req, res) => {
     });
     if (existingUser) {
       return res.status(400).json({
-        error: "User already exists",
+        error: MESSAGES.USER_ALREADY_EXISTS,
       });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -36,13 +37,13 @@ const register = async (req, res) => {
       expiresIn: JWT_EXPIRES_IN,
     });
     res.status(201).json({
-      message: "User registered successfully",
+      message: MESSAGES.USER_REGISTERED_SUCCESS,
       data: user,
       token,
     });
   } catch (error) {
     console.error("Registration Error");
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: MESSAGES.INTERNAL_SERVER_ERROR });
   }
 };
 const login = async (req, res) => {
@@ -53,20 +54,20 @@ const login = async (req, res) => {
     });
     if (!user) {
       res.status(401).json({
-        message: "Invalid credentials",
+        message: MESSAGES.INVALID_CREDENTIALS,
       });
     }
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword) {
       res.status(401).json({
-        message: "Invalid email or password",
+        message: MESSAGES.INVALID_EMAIL_OR_PASSWORD,
       });
     }
     const token = jwt.sign({ userId: user.id }, JWT_SECRET, {
       expiresIn: JWT_EXPIRES_IN,
     });
     res.status(200).json({
-      message: "Login successful",
+      message: MESSAGES.LOGIN_SUCCESS,
       user: {
         id: user.id,
         email: user.email,
@@ -77,7 +78,7 @@ const login = async (req, res) => {
   } catch {
     console.error("Internal server error");
     res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
@@ -98,17 +99,17 @@ const getUserDetails = async (req, res) => {
     });
     if (!user) {
       return res.status(404).json({
-        message: "User details not found",
+        message: MESSAGES.USER_DETAILS_NOT_FOUND,
       });
     }
     res.status(200).json({
-      message: "User data retrieved successfully",
+      message: MESSAGES.USER_DATA_RETRIEVED_SUCCESS,
       data: user,
     });
   } catch (error) {
     console.error("Error fetching user details", error);
     res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };

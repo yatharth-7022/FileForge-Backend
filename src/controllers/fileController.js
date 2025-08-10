@@ -7,6 +7,7 @@ const { REFUSED } = require("dns");
 const crypto = require("crypto");
 const { UploadClient } = require("@uploadcare/upload-client");
 const { error } = require("console");
+const MESSAGES = require("../constants/messages");
 const uploadcare = require("uploadcare")(
   process.env.UPLOADCARE_PUBLIC_KEY,
   process.env.UPLOADCARE_SECRET_KEY
@@ -86,12 +87,8 @@ async function waitForUploadReady(
 }
 
 async function generateThumbnailForPdf(pdfUuid) {
-  console.log("Starting thumbnail generation for UUID:", pdfUuid);
-
   const auth = authHeader();
   const conversionPath = `https://ucarecdn.com/${pdfUuid}/document/-/format/jpg/-/page/1/`;
-
-  console.log("Conversion path:", conversionPath);
 
   const convertResp = await axios.post(
     "https://api.uploadcare.com/convert/document/",
@@ -105,22 +102,16 @@ async function generateThumbnailForPdf(pdfUuid) {
     }
   );
 
-  console.log("Convert response:", JSON.stringify(convertResp.data, null, 2));
-
   const token = convertResp.data?.result?.[0]?.token;
   if (!token) {
     console.error("No conversion token received:", convertResp.data);
     throw new Error("No conversion token received");
   }
 
-  console.log("Got conversion token:", token);
-
   const statusData = await waitForConversion(token, auth, {
     timeoutMs: 120000,
     intervalMs: 1500,
   });
-
-  console.log("Final status data:", JSON.stringify(statusData, null, 2));
 
   let thumbnailUuid;
   if (Array.isArray(statusData?.result)) {
@@ -134,7 +125,6 @@ async function generateThumbnailForPdf(pdfUuid) {
     throw new Error("No thumbnail UUID received");
   }
 
-  console.log("Generated thumbnail UUID:", thumbnailUuid);
   return thumbnailUuid;
 }
 
@@ -150,10 +140,8 @@ const uploadFiles = async (req, res) => {
       // Files uploaded via 'files' field (single or multiple)
       filesToProcess = req.files;
     } else {
-      return res.status(400).json({ message: "No files provided" });
+      return res.status(400).json({ message: MESSAGES.NO_FILES_PROVIDED });
     }
-
-    console.log(`Processing ${filesToProcess.length} file(s) for upload`);
 
     const uploadResults = [];
     const errors = [];
@@ -163,17 +151,11 @@ const uploadFiles = async (req, res) => {
       const file = filesToProcess[i];
 
       try {
-        console.log(
-          `Processing file ${i + 1}/${filesToProcess.length}: ${
-            file.originalname
-          }`
-        );
-
         // Validate file buffer
         if (!file.buffer || !(file.buffer instanceof Buffer)) {
           errors.push({
             fileName: file.originalname,
-            error: "Invalid file buffer",
+            error: MESSAGES.INVALID_FILE_BUFFER,
           });
           continue;
         }
@@ -184,11 +166,6 @@ const uploadFiles = async (req, res) => {
           contentType: file.mimetype,
           store: "auto",
           metadata: { userId: String(userId) },
-        });
-
-        console.log("File uploaded to Uploadcare:", {
-          uuid: uploadResult.uuid,
-          mimetype: file.mimetype,
         });
 
         // Save initial file record
@@ -204,15 +181,9 @@ const uploadFiles = async (req, res) => {
           },
         });
 
-        console.log("File saved to database with ID:", uploadedFile.id);
-
         // Generate thumbnail for PDFs automatically
         if (file.mimetype === "application/pdf") {
           try {
-            console.log(
-              "PDF detected, generating thumbnail for UUID:",
-              uploadResult.uuid
-            );
             // Ensure the uploaded PDF is fully ready before requesting conversion
             try {
               const auth = authHeader();
@@ -238,10 +209,6 @@ const uploadFiles = async (req, res) => {
                 thumbnailUrl: `https://ucarecdn.com/${thumbnailUuid}/`,
               },
             });
-            console.log(
-              "Thumbnail generated and saved successfully:",
-              thumbnailUuid
-            );
           } catch (thumbnailError) {
             console.error("Thumbnail generation failed:", thumbnailError);
             console.error("Thumbnail error stack:", thumbnailError.stack);
@@ -254,7 +221,6 @@ const uploadFiles = async (req, res) => {
                   thumbnailUrl: fallbackUrl,
                 },
               });
-              console.log("Applied fallback thumbnail URL:", fallbackUrl);
             } catch (fallbackErr) {
               console.warn(
                 "Failed to set fallback thumbnail:",
@@ -287,20 +253,20 @@ const uploadFiles = async (req, res) => {
       // Single file response format
       if (uploadResults.length === 1) {
         return res.status(200).json({
-          message: "File uploaded successfully",
+          message: MESSAGES.FILE_UPLOADED_SUCCESS,
           file: uploadResults[0],
         });
       } else {
         // Single file failed
         return res.status(400).json({
-          message: "File upload failed",
+          message: MESSAGES.FILE_UPLOAD_FAILED,
           error: errors[0]?.error || "Unknown error",
         });
       }
     } else {
       // Multiple files response format
       const response = {
-        message: `Processed ${filesToProcess.length} files`,
+        message: MESSAGES.processedFilesMessage(filesToProcess.length),
         summary: {
           total: filesToProcess.length,
           successful: uploadResults.length,
@@ -317,7 +283,7 @@ const uploadFiles = async (req, res) => {
     }
   } catch (error) {
     console.error("Upload error:", error);
-    res.status(500).json({ message: "Error uploading files" });
+    res.status(500).json({ message: MESSAGES.ERROR_UPLOADING_FILES });
   }
 };
 
@@ -328,8 +294,6 @@ const getAllFiles = async (req, res) => {
     const limit = parseInt(req.query.limit || 10);
     const searchQuery = req.query.search;
     const fileType = req.query.file_type;
-
-    const isFavorite = req.query.starred === "true";
 
     const skip = (page - 1) * limit;
 
@@ -343,8 +307,12 @@ const getAllFiles = async (req, res) => {
           mode: "insensitive",
         },
       }),
-      ...(isFavorite && { isFavorite: true }),
     };
+
+    // Handle starred filter if provided
+    if (req.query.starred !== undefined) {
+      whereClause.isFavorite = req.query.starred === "true";
+    }
 
     const totalFiles = await prisma.file.count({
       where: whereClause,
@@ -376,7 +344,7 @@ const getAllFiles = async (req, res) => {
     const hasPrevPage = page > 1;
 
     res.status(200).json({
-      message: "Files retrieved successfully",
+      message: MESSAGES.FILES_RETRIEVED_SUCCESS,
       data: {
         files,
         pagination: {
@@ -393,105 +361,138 @@ const getAllFiles = async (req, res) => {
     console.error("Error fetching files", error);
     if (error.name === "ValidationError") {
       return res.status(400).json({
-        message: "Invalid query parameters",
+        message: MESSAGES.INVALID_QUERY_PARAMETERS,
         details: error.message,
       });
     }
     res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
 const getImageFiles = async (req, res) => {
-  const userId = req.user.userId;
-  const page = parseInt(req.query.page || 1);
-  const limit = parseInt(req.query.limit || 10);
-  const skip = (page - 1) * limit;
+  try {
+    const userId = req.user.userId;
+    const page = parseInt(req.query.page || 1);
+    const limit = parseInt(req.query.limit || 10);
+    const skip = (page - 1) * limit;
 
-  const whereClause = {
-    ownerId: userId,
-    format: {
-      in: ["jpeg", "jpg", "png", "gif", "bmp", "webp", "svg", "tiff", "ico"],
-    },
-    isDeleted: false,
-  };
+    const whereClause = {
+      ownerId: userId,
+      format: {
+        in: ["jpeg", "jpg", "png", "gif", "bmp", "webp", "svg", "tiff", "ico"],
+      },
+      isDeleted: false,
+    };
 
-  if (req.query.starred !== undefined) {
-    whereClause.isFavorite = req.query.starred === "true";
-  }
+    // Handle starred filter if provided
+    if (req.query.starred !== undefined) {
+      whereClause.isFavorite = req.query.starred === "true";
+    }
 
-  const imageFiles = await prisma.file.findMany({
-    where: whereClause,
-    orderBy: {
-      createdAt: "desc",
-    },
-    select: {
-      id: true,
-      name: true,
-      format: true,
-      size: true,
-      createdAt: true,
-      url: true,
-      isFavorite: true,
-      favoriteAt: true,
-    },
-    skip,
-    take: limit,
-  });
+    const imageFiles = await prisma.file.findMany({
+      where: whereClause,
+      orderBy: {
+        createdAt: "desc",
+      },
+      select: {
+        id: true,
+        name: true,
+        format: true,
+        size: true,
+        createdAt: true,
+        url: true,
+        isFavorite: true,
+        favoriteAt: true,
+      },
+      skip,
+      take: limit,
+    });
 
-  if (!imageFiles || imageFiles.length === 0) {
-    return res.status(404).json({
-      message: "No image files found",
+    if (!imageFiles || imageFiles.length === 0) {
+      // Let's also check if there are ANY files for this user
+      const totalUserFiles = await prisma.file.count({
+        where: { ownerId: userId, isDeleted: false },
+      });
+
+      const totalImageFiles = await prisma.file.count({
+        where: {
+          ownerId: userId,
+          format: {
+            in: [
+              "jpeg",
+              "jpg",
+              "png",
+              "gif",
+              "bmp",
+              "webp",
+              "svg",
+              "tiff",
+              "ico",
+            ],
+          },
+          isDeleted: false,
+        },
+      });
+      return res.status(404).json({
+        message: MESSAGES.NO_IMAGE_FILES_FOUND,
+      });
+    }
+    const totalFiles = await prisma.file.count({
+      where: whereClause,
+    });
+    const totalPages = Math.ceil(totalFiles / limit);
+    const hasNextPage = page < totalPages;
+    const hasPrevPage = page > 1;
+    res.status(200).json({
+      message: MESSAGES.IMAGE_FILES_RETRIEVED_SUCCESS,
+      count: totalFiles,
+      data: {
+        imageFiles,
+        pagination: {
+          currentPage: page,
+          totalPages,
+          totalFiles,
+          hasNextPage,
+          hasPrevPage,
+          limit,
+        },
+      },
+    });
+  } catch (error) {
+    console.error("Error in getImageFiles:", error);
+    res.status(500).json({
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
-  const totalFiles = await prisma.file.count({
-    where: whereClause,
-  });
-  const totalPages = Math.ceil(totalFiles / limit);
-  const hasNextPage = page < totalPages;
-  const hasPrevPage = page > 1;
-  res.status(200).json({
-    message: "Image files retrieved successfully",
-    count: totalFiles,
-    data: {
-      imageFiles,
-      pagination: {
-        currentPage: page,
-        totalPages,
-        totalFiles,
-        hasNextPage,
-        hasPrevPage,
-        limit,
-      },
-    },
-  });
 };
 const toggleStarFile = async (req, res) => {
   try {
     const userId = req.user.userId;
     const fileId = req.params.fileId;
+    const isFavorite = req.query.starred === "true";
 
     const existingFile = await prisma.file.findFirst({
       where: {
-        id: parseInt(fileId),
+        id: fileId,
         ownerId: userId,
         isDeleted: false,
       },
       select: {
         id: true,
-        starred: true,
+        isFavorite: true,
         name: true,
       },
     });
 
     if (!existingFile) {
       return res.status(404).json({
-        message: "File not found",
+        message: MESSAGES.FILE_NOT_FOUND,
       });
     }
     const updatedFile = await prisma.file.update({
       where: {
-        id: parseInt(fileId),
+        id: fileId,
       },
       data: {
         isFavorite: !existingFile.isFavorite,
@@ -500,14 +501,14 @@ const toggleStarFile = async (req, res) => {
     });
     res.status(200).json({
       message: updatedFile.isFavorite
-        ? "File favorited successfully"
-        : "File unfavorited successfully",
+        ? MESSAGES.FILE_FAVORITED_SUCCESS
+        : MESSAGES.FILE_UNFAVORITED_SUCCESS,
       file: updatedFile,
     });
   } catch (error) {
     console.error("Error toggling file star status:", error);
     res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
@@ -525,7 +526,7 @@ const deleteFile = async (req, res) => {
     });
     if (!file) {
       return res.status(400).json({
-        message: "File not found or you don't have permission",
+        message: MESSAGES.FILE_NOT_FOUND_OR_NO_PERMISSION,
       });
     }
 
@@ -535,7 +536,7 @@ const deleteFile = async (req, res) => {
     } catch (uploadcareError) {
       console.error("Error deleting file from Uploadcare:", uploadcareError);
       return res.status(500).json({
-        message: "Error deleting file from storage",
+        message: MESSAGES.ERROR_DELETING_FROM_STORAGE,
       });
     }
 
@@ -546,13 +547,13 @@ const deleteFile = async (req, res) => {
     });
 
     res.json({
-      message: "File deleted successfully",
+      message: MESSAGES.FILE_DELETED_SUCCESS,
       fileId: fileId,
     });
   } catch (error) {
     console.error("File deletion error:", error);
     res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
@@ -567,7 +568,7 @@ const softDeleteFiles = async (req, res) => {
       fileIds = req.body.fileIds;
     } else {
       return res.status(400).json({
-        message: "No file IDs provided",
+        message: MESSAGES.NO_FILE_IDS_PROVIDED,
       });
     }
     let results = [];
@@ -583,7 +584,10 @@ const softDeleteFiles = async (req, res) => {
           },
         });
         if (!file) {
-          errors.push({ fileId, error: "File not found or already deleted" });
+          errors.push({
+            fileId,
+            error: MESSAGES.FILE_NOT_FOUND_OR_ALREADY_DELETED,
+          });
           continue;
         }
         const updatedFile = await prisma.file.update({
@@ -611,8 +615,8 @@ const softDeleteFiles = async (req, res) => {
     const response = {
       message:
         fileIds.length === 1
-          ? "File moved to trash"
-          : `Processed ${fileIds.length} files`,
+          ? MESSAGES.FILE_MOVED_TO_TRASH
+          : MESSAGES.processedFilesMessage(fileIds.length),
       summary: {
         total: fileIds.length,
         successful: results.length,
@@ -632,7 +636,7 @@ const softDeleteFiles = async (req, res) => {
   } catch (error) {
     console.error("Internal server error:", error);
     res.status(500).json({
-      message: "Could not process request",
+      message: MESSAGES.COULD_NOT_PROCESS_REQUEST,
     });
   }
 };
@@ -679,7 +683,7 @@ const viewTrashFiles = async (req, res) => {
 
     if (!trashFiles || trashFiles.length === 0) {
       return res.status(404).json({
-        message: "No trash files found",
+        message: MESSAGES.NO_TRASH_FILES_FOUND,
       });
     }
 
@@ -704,7 +708,7 @@ const viewTrashFiles = async (req, res) => {
   } catch (error) {
     console.error("Could not fetch trash files,", error);
     res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
@@ -879,7 +883,7 @@ const renameFile = async (req, res) => {
   } catch (error) {
     console.error("Could not rename file ", error);
     res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
@@ -1054,7 +1058,7 @@ const permanentDelete = async (req, res) => {
     } catch (uploadcareError) {
       console.error("Error deleting file from Uploadcare:", uploadcareError);
       return res.status(500).json({
-        message: "Error deleting file from storage",
+        message: MESSAGES.ERROR_DELETING_FROM_STORAGE,
       });
     }
 
@@ -1069,7 +1073,7 @@ const permanentDelete = async (req, res) => {
   } catch (error) {
     console.error("Permanent delete error:", error);
     return res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
@@ -1099,7 +1103,7 @@ const restoreFile = async (req, res) => {
   } catch (error) {
     console.error("Restore file error:", error);
     return res.status(500).json({
-      message: "Internal server error",
+      message: MESSAGES.INTERNAL_SERVER_ERROR,
     });
   }
 };
