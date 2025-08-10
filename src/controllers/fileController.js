@@ -821,6 +821,79 @@ const getPdfThumbnail = async (req, res) => {
     });
   }
 };
+const permanentDelete = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const fileId = req.params.fileId;
+
+    const file = await prisma.file.findFirst({
+      where: {
+        id: fileId,
+        ownerId: userId,
+        isDeleted: true,
+      },
+    });
+
+    if (!file) {
+      return res.status(404).json({
+        message: "File not found in trash or you don't have permission",
+      });
+    }
+
+    try {
+      await uploadcare.files.remove(file.publicId);
+    } catch (uploadcareError) {
+      console.error("Error deleting file from Uploadcare:", uploadcareError);
+      return res.status(500).json({
+        message: "Error deleting file from storage",
+      });
+    }
+
+    await prisma.file.delete({
+      where: { id: fileId },
+    });
+
+    return res.status(200).json({
+      message: "File permanently deleted",
+      fileId,
+    });
+  } catch (error) {
+    console.error("Permanent delete error:", error);
+    return res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
+const restoreFile = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const fileId = req.params.fileId;
+
+    const file = await prisma.file.findFirst({
+      where: { id: fileId, ownerId: userId, isDeleted: true },
+    });
+
+    if (!file) {
+      return res.status(404).json({
+        message: "File not found in trash or you don't have permission",
+      });
+    }
+
+    await prisma.file.update({
+      where: { id: fileId },
+      data: { isDeleted: false },
+    });
+    return res.status(200).json({
+      message: "File restored successfully",
+      fileId,
+    });
+  } catch (error) {
+    console.error("Restore file error:", error);
+    return res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
 module.exports = {
   uploadFile,
   getAllFiles,
@@ -831,4 +904,6 @@ module.exports = {
   viewFile,
   renameFile,
   getPdfThumbnail,
+  permanentDelete,
+  restoreFile,
 };

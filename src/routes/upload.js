@@ -9,6 +9,8 @@ const {
   viewFile,
   renameFile,
   getPdfThumbnail,
+  permanentDelete,
+  restoreFile,
 } = require("../controllers/fileController");
 const { authenticateToken } = require("../middleware/auth");
 const fileUpload = require("../middleware/fileUpload");
@@ -29,5 +31,7 @@ router.get("/view-file/:fileId", authenticateToken, viewFile);
 router.put("/soft-delete/:fileId", authenticateToken, softDeleteFiles);
 router.get("/trash", authenticateToken, viewTrashFiles);
 router.get("/pdf-thumbnail/:fileId", authenticateToken, getPdfThumbnail);
+router.delete("/trash/permanent/:fileId", authenticateToken, permanentDelete);
+router.put("/restore/:fileId", authenticateToken, restoreFile);
 
 module.exports = router;

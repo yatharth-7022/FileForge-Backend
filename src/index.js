@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: allowedOrigins, // Allow your frontend URL
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], // Include PATCH for rename endpoint
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
   })
 );
