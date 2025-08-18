@@ -5,6 +5,7 @@ const logger = require("./config/logger");
 const requestLogger = require("./middleware/requestLogger");
 const authRoutes = require("./routes/auth");
 const uploadRoutes = require("./routes/upload");
+const shareLinkRoutes = require("./routes/shareLink");
 const app = express();
 
 const allowedOrigins = process.env.FRONTEND_URL
@@ -34,6 +35,7 @@ app.get("/health", (req, res) => {
 });
 app.use("/api/auth", authRoutes);
 app.use("/api", uploadRoutes);
+app.use("/api/share", shareLinkRoutes);
 
 // Error handling middleware should be last
 const errorHandler = require("./middleware/errorHandler");

@@ -5813,3 +5813,779 @@
 {"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-10 23:40:53"}
 {"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-10 23:40:53","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
 {"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":4,"statusCode":200,"timestamp":"2025-08-10 23:40:53"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 10:31:40"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 10:31:40"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 10:31:51","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":403,"timestamp":"2025-08-12 10:31:51"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 10:31:51","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":2,"statusCode":403,"timestamp":"2025-08-12 10:31:51"}
+{"body":{"email":"yatharth@yopmail.com","password":"yatharth"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-12 10:32:16","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":173,"statusCode":200,"timestamp":"2025-08-12 10:32:16"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 10:32:16","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":3,"statusCode":200,"timestamp":"2025-08-12 10:32:16"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 10:32:18","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:32:18","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 10:32:18","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":92,"statusCode":200,"timestamp":"2025-08-12 10:32:18"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":106,"statusCode":200,"timestamp":"2025-08-12 10:32:18"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":102,"statusCode":200,"timestamp":"2025-08-12 10:32:18"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:32:18","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-12 10:32:18"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/983f5634-84f6-43a9-9a43-f64ae2bc3be9","query":{},"timestamp":"2025-08-12 10:32:25","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":14,"statusCode":200,"timestamp":"2025-08-12 10:32:34"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-12 10:32:34"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","responseTime":6,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":5,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","responseTime":12,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","responseTime":10,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":7,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","responseTime":6,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","responseTime":4,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","responseTime":6,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","query":{},"timestamp":"2025-08-12 10:32:34","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","responseTime":7,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","responseTime":3,"statusCode":404,"timestamp":"2025-08-12 10:32:34"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","responseTime":9,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","responseTime":8,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","responseTime":7,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":16,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","responseTime":12,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/93b40a91-a2c6-4f5f-8f2d-72ca9f65a67c","responseTime":11,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/70586cfb-309b-4b42-9587-d6ce99218cb3","responseTime":9,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/7d5f69a5-1df9-46fd-84bf-9e0cac99b786","responseTime":6,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","query":{},"timestamp":"2025-08-12 10:32:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/8aa7f1f8-fe3b-4499-93ca-cd0ce8887f74","responseTime":7,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/view-file/85325b41-28b0-4d8e-965a-3084e2f181b4","responseTime":4,"statusCode":404,"timestamp":"2025-08-12 10:32:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:32:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":4,"statusCode":200,"timestamp":"2025-08-12 10:32:44"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:32:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":4,"statusCode":200,"timestamp":"2025-08-12 10:32:45"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:34:03","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":5,"statusCode":200,"timestamp":"2025-08-12 10:34:03"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:34:03","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":4,"statusCode":200,"timestamp":"2025-08-12 10:34:03"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"false"},"timestamp":"2025-08-12 10:34:05","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-12 10:34:05"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"true"},"timestamp":"2025-08-12 10:34:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-12 10:34:06"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"false"},"timestamp":"2025-08-12 10:34:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-12 10:34:06"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:34:07","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":4,"statusCode":200,"timestamp":"2025-08-12 10:34:07"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"true"},"timestamp":"2025-08-12 10:34:12","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":4,"statusCode":200,"timestamp":"2025-08-12 10:34:12"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 10:34:14","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":5,"statusCode":200,"timestamp":"2025-08-12 10:34:14"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 11:26:54"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 11:26:54"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 11:27:05"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 11:27:05"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 11:44:50"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 11:44:50"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 11:45:11"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 11:45:11"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 11:56:09"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 11:56:10"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:09:43"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:09:43"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:10:47"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:10:47"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:11:04"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:11:04"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:11:08"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:11:08"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:15:44"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:15:44"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:20:19"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:20:19"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:20:24"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:20:24"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:23:15"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:23:15"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:26:22"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:26:22"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:26:46"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:26:46"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:26:54"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:26:54"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:26:56"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:26:56"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:27:37"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:27:37"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:30:10"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:30:10"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:30:18"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:30:18"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:30:28"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:30:28"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:32:10"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:32:10"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:32:22"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:32:22"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:32:56"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:32:56"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:33:04"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:33:04"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:33:17"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:33:17"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:33:20"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:33:20"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:34:41"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:34:41"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:34:47"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:34:47"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:35:58"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:35:58"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:36:28"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:36:28"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:37:10"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:37:10"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:37:13"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:37:13"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:37:27"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:37:27"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:37:33"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:37:33"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:37:43"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:37:43"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:38:11"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:38:11"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:39:10"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:39:10"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:40:01"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:40:02"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:40:07"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:40:07"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:40:34"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:40:34"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:40:50"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:40:50"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:41:36"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:41:36"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:41:40"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:41:40"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:41:58"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:41:58"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:45:10"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:45:10"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:45:14"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:45:14"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:45:18"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:45:18"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:45:29"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:45:29"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:45:51"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:45:51"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:46:27"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:46:27"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:47:38"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:47:38"}
+{"body":{"email":"yatharth@yopmail.com","password":"yatharth"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-12 12:48:15","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":57,"statusCode":401,"timestamp":"2025-08-12 12:48:15"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":60,"statusCode":500,"timestamp":"2025-08-12 12:48:15"}
+{"body":{"email":"yatharth@yopmail.com","password":"yatharth"},"error":"Cannot set headers after they are sent to the client","level":"error","message":"Unhandled error:","method":"POST","path":"/api/auth/login","query":{},"stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (node:_http_outgoing:655:11)\n    at ServerResponse.header (/home/yatharthDev/fileforge-backend/node_modules/express/lib/response.js:684:10)\n    at ServerResponse.send (/home/yatharthDev/fileforge-backend/node_modules/express/lib/response.js:161:12)\n    at res.send (/home/yatharthDev/fileforge-backend/src/middleware/requestLogger.js:26:18)\n    at ServerResponse.json (/home/yatharthDev/fileforge-backend/node_modules/express/lib/response.js:250:15)\n    at login (/home/yatharthDev/fileforge-backend/src/controllers/authController.js:80:21)","timestamp":"2025-08-12 12:48:15","user":"anonymous"}
+{"level":"info","message":"Outgoing response for POST","path":"/api/auth/login","responseTime":63,"statusCode":500,"timestamp":"2025-08-12 12:48:15"}
+{"body":{"email":"yatharth@yopmail.com","password":"yatharth"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-12 12:48:20","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":2,"statusCode":401,"timestamp":"2025-08-12 12:48:20"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":3,"statusCode":500,"timestamp":"2025-08-12 12:48:20"}
+{"body":{"email":"yatharth@yopmail.com","password":"yatharth"},"error":"Cannot set headers after they are sent to the client","level":"error","message":"Unhandled error:","method":"POST","path":"/api/auth/login","query":{},"stack":"Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n    at ServerResponse.setHeader (node:_http_outgoing:655:11)\n    at ServerResponse.header (/home/yatharthDev/fileforge-backend/node_modules/express/lib/response.js:684:10)\n    at ServerResponse.send (/home/yatharthDev/fileforge-backend/node_modules/express/lib/response.js:161:12)\n    at res.send (/home/yatharthDev/fileforge-backend/src/middleware/requestLogger.js:26:18)\n    at ServerResponse.json (/home/yatharthDev/fileforge-backend/node_modules/express/lib/response.js:250:15)\n    at login (/home/yatharthDev/fileforge-backend/src/controllers/authController.js:80:21)","timestamp":"2025-08-12 12:48:20","user":"anonymous"}
+{"level":"info","message":"Outgoing response for POST","path":"/api/auth/login","responseTime":6,"statusCode":500,"timestamp":"2025-08-12 12:48:20"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 12:50:18"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 12:50:18"}
+{"body":{"email":"shubham@yopmail.com","name":"shubham","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/register","query":{},"timestamp":"2025-08-12 12:51:27","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/register","responseTime":164,"statusCode":201,"timestamp":"2025-08-12 12:51:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-12 12:51:48","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":51,"statusCode":200,"timestamp":"2025-08-12 12:51:48"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:51:58","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":2,"statusCode":400,"timestamp":"2025-08-12 12:51:58"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:52:06","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":6,"statusCode":400,"timestamp":"2025-08-12 12:52:06"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:52:28","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":3,"statusCode":400,"timestamp":"2025-08-12 12:52:28"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:53:02","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":3,"statusCode":400,"timestamp":"2025-08-12 12:53:02"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 12:53:13","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":404,"timestamp":"2025-08-12 12:53:13"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 12:53:13","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":3,"statusCode":404,"timestamp":"2025-08-12 12:53:13"}
+{"body":{"email":"shubham@yopmail.com","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-12 12:53:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":101,"statusCode":200,"timestamp":"2025-08-12 12:53:20"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 12:53:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":2,"statusCode":200,"timestamp":"2025-08-12 12:53:20"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 12:53:22","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 12:53:22","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 12:53:22","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":20,"statusCode":404,"timestamp":"2025-08-12 12:53:22"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":404,"timestamp":"2025-08-12 12:53:22"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":31,"statusCode":200,"timestamp":"2025-08-12 12:53:22"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 12:53:22","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-12 12:53:22"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:53:26","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":3841,"statusCode":400,"timestamp":"2025-08-12 12:53:30"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 12:53:30","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 12:53:30","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":404,"timestamp":"2025-08-12 12:53:30"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-12 12:53:30"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:53:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":1116,"statusCode":400,"timestamp":"2025-08-12 12:53:36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 12:53:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 12:53:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":8,"statusCode":404,"timestamp":"2025-08-12 12:53:36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-12 12:53:36"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:56:57","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":2,"statusCode":400,"timestamp":"2025-08-12 12:56:57"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 12:58:20","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":2,"statusCode":400,"timestamp":"2025-08-12 12:58:20"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 13:01:08","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":3179,"statusCode":400,"timestamp":"2025-08-12 13:01:11"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 13:05:58","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":2512,"statusCode":400,"timestamp":"2025-08-12 13:06:00"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 13:08:13","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":2799,"statusCode":400,"timestamp":"2025-08-12 13:08:16"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:11:56"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:11:56"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-12 13:20:23","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":25238,"statusCode":200,"timestamp":"2025-08-12 13:20:48"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-12 13:21:18","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":13,"statusCode":200,"timestamp":"2025-08-12 13:21:18"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:33:52"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:33:53"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:33:58"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:33:58"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:34:10"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:34:10"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 13:34:23","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:34:47"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:34:47"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 13:34:50","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:37:25"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:37:25"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 13:37:31","userAgent":"PostmanRuntime/7.45.0"}
+{"error":"Failed to check existing share: \nInvalid `prisma.sharedLink.findFirst()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:13:51\n\n  10 };\n  11 const getExistingShareLink = async (fileId, userId) => {\n  12   try {\n→ 13     const existingShare = await prisma.sharedLink.findFirst({\n           where: {\n             fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n             userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n             isActive: true\n           },\n           include: {\n             file: {\n               select: {\n                 id: true,\n                 name: true,\n                 size: true,\n                 type: true,\n                 ~~~~\n                 url: true,\n         ?       publicId?: true,\n         ?       isFavorite?: true,\n         ?       favoriteAt?: true,\n         ?       format?: true,\n         ?       thumbnailUuid?: true,\n         ?       thumbnailUrl?: true,\n         ?       ownerId?: true,\n         ?       isDeleted?: true,\n         ?       deletedAt?: true,\n         ?       deleteById?: true,\n         ?       createdAt?: true,\n         ?       updatedAt?: true,\n         ?       owner?: true,\n         ?       deletedBy?: true,\n         ?       sharedLinks?: true,\n         ?       _count?: true\n               }\n             }\n           }\n         })\n\nUnknown field `type` for select statement on model `File`. Available options are marked with ?.","level":"error","message":"Unhandled error:","method":"POST","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"stack":"Error: Failed to check existing share: \nInvalid `prisma.sharedLink.findFirst()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:13:51\n\n  10 };\n  11 const getExistingShareLink = async (fileId, userId) => {\n  12   try {\n→ 13     const existingShare = await prisma.sharedLink.findFirst({\n           where: {\n             fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n             userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n             isActive: true\n           },\n           include: {\n             file: {\n               select: {\n                 id: true,\n                 name: true,\n                 size: true,\n                 type: true,\n                 ~~~~\n                 url: true,\n         ?       publicId?: true,\n         ?       isFavorite?: true,\n         ?       favoriteAt?: true,\n         ?       format?: true,\n         ?       thumbnailUuid?: true,\n         ?       thumbnailUrl?: true,\n         ?       ownerId?: true,\n         ?       isDeleted?: true,\n         ?       deletedAt?: true,\n         ?       deleteById?: true,\n         ?       createdAt?: true,\n         ?       updatedAt?: true,\n         ?       owner?: true,\n         ?       deletedBy?: true,\n         ?       sharedLinks?: true,\n         ?       _count?: true\n               }\n             }\n           }\n         })\n\nUnknown field `type` for select statement on model `File`. Available options are marked with ?.\n    at getExistingShareLink (/home/yatharthDev/fileforge-backend/src/services/shareService.js:33:11)\n    at async createShareLink (/home/yatharthDev/fileforge-backend/src/controllers/shareLinkController.js:12:25)","timestamp":"2025-08-12 13:37:32"}
+{"level":"info","message":"Outgoing response for POST","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":76,"statusCode":500,"timestamp":"2025-08-12 13:37:32"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:40:20"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:40:21"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:41:03"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:41:03"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:41:12"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:41:13"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 13:41:16","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to create share link for file: cf581276-c299-49a1-866f-ea81d884ec4f. Error: Failed to create share link: \nInvalid `prisma.sharedLink.create()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:55:47\n\n  52   passwordHash = await bcrypt.hash(password, 10);\n  53 }\n  54 const shareToken = generateShareLink();\n→ 55 const shareLink = await prisma.sharedLink.create({\n       data: {\n         shareToken: \"1a8e9d95c48f6ff1d832bc690ed411b6\",\n         fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n         userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n         canView: true,\n         canDownload: false,\n         password: null,\n         expiresAt: null,\n         maxDownloads: null,\n     +   sharedToken: String\n       },\n       include: {\n         file: {\n           select: {\n             id: true,\n             name: true,\n             size: true,\n             type: true,\n             url: true\n           }\n         }\n       }\n     })\n\nArgument `sharedToken` is missing.","timestamp":"2025-08-12 13:41:16"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":85,"statusCode":500,"timestamp":"2025-08-12 13:41:16"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 13:42:51"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 13:42:51"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 15:11:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":276,"statusCode":200,"timestamp":"2025-08-12 15:11:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 15:11:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":9,"statusCode":200,"timestamp":"2025-08-12 15:11:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 15:11:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 15:11:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 15:11:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":114,"statusCode":404,"timestamp":"2025-08-12 15:11:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":113,"statusCode":200,"timestamp":"2025-08-12 15:11:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":108,"statusCode":404,"timestamp":"2025-08-12 15:11:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 15:11:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-12 15:11:43"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 15:11:55","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to create share link for file: cf581276-c299-49a1-866f-ea81d884ec4f. Error: Failed to create share link: \nInvalid `prisma.sharedLink.create()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:55:47\n\n  52   passwordHash = await bcrypt.hash(password, 10);\n  53 }\n  54 const shareToken = generateShareLink();\n→ 55 const shareLink = await prisma.sharedLink.create({\n       data: {\n         shareToken: \"6323b3ef57035752e0c666ed86c6cbc7\",\n         fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n         userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n         canView: true,\n         canDownload: false,\n         password: null,\n         expiresAt: null,\n         maxDownloads: null,\n     +   sharedToken: String\n       },\n       include: {\n         file: {\n           select: {\n             id: true,\n             name: true,\n             size: true,\n             type: true,\n             url: true\n           }\n         }\n       }\n     })\n\nArgument `sharedToken` is missing.","timestamp":"2025-08-12 15:11:56"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":81,"statusCode":500,"timestamp":"2025-08-12 15:11:56"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 15:12:38"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 15:12:38"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 15:13:05"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 15:13:06"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 15:13:21"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 15:13:21"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 15:13:22"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 15:13:22"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 15:13:43"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 15:13:44"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 15:13:53","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to create share link for file: cf581276-c299-49a1-866f-ea81d884ec4f. Error: Failed to create share link: \nInvalid `prisma.sharedLink.create()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:55:47\n\n  52   passwordHash = await bcrypt.hash(password, 10);\n  53 }\n  54 const shareToken = generateShareLink();\n→ 55 const shareLink = await prisma.sharedLink.create({\n       data: {\n         shareToken: \"792290f76c751c5d11fe652cc9111d48\",\n         fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n         userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n         canView: true,\n         canDownload: false,\n         password: null,\n         expiresAt: null,\n         maxDownloads: null,\n     +   sharedToken: String\n       },\n       include: {\n         file: {\n           select: {\n             id: true,\n             name: true,\n             size: true,\n             type: true,\n             url: true\n           }\n         }\n       }\n     })\n\nArgument `sharedToken` is missing.","timestamp":"2025-08-12 15:13:53"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":127,"statusCode":500,"timestamp":"2025-08-12 15:13:53"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 15:15:13"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 15:15:14"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 15:15:16","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to create share link for file: cf581276-c299-49a1-866f-ea81d884ec4f. Error: Failed to create share link: \nInvalid `prisma.sharedLink.create()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:55:47\n\n  52   passwordHash = await bcrypt.hash(password, 10);\n  53 }\n  54 const shareToken = generateShareLink();\n→ 55 const shareLink = await prisma.sharedLink.create({\n       data: {\n         shareToken: \"50e448663aae91184f468b7a4a25f320\",\n         fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n         userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n         canView: true,\n         canDownload: false,\n         password: null,\n         ~~~~~~~~\n         expiresAt: null,\n         maxDownloads: null,\n     ?   id?: String,\n     ?   canEdit?: Boolean,\n     ?   passwordHash?: String | Null,\n     ?   downloadCount?: Int,\n     ?   isActive?: Boolean,\n     ?   createdAt?: DateTime,\n     ?   updatedAt?: DateTime\n       },\n       include: {\n         file: {\n           select: {\n             id: true,\n             name: true,\n             size: true,\n             type: true,\n             url: true\n           }\n         }\n       }\n     })\n\nUnknown argument `password`. Available options are marked with ?.","timestamp":"2025-08-12 15:15:16"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":87,"statusCode":500,"timestamp":"2025-08-12 15:15:16"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 17:19:29"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 17:19:29"}
+{"body":{"email":"shubham@yopmail.com","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-12 19:27:53","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":276,"statusCode":200,"timestamp":"2025-08-12 19:27:53"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{},"timestamp":"2025-08-12 19:28:19","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":77,"statusCode":200,"timestamp":"2025-08-12 19:28:19"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 19:28:35","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to create share link for file: cf581276-c299-49a1-866f-ea81d884ec4f. Error: Failed to create share link: \nInvalid `prisma.sharedLink.create()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:55:47\n\n  52   passwordHash = await bcrypt.hash(password, 10);\n  53 }\n  54 const shareToken = generateShareLink();\n→ 55 const shareLink = await prisma.sharedLink.create({\n       data: {\n         shareToken: \"e72824e87f9e219150966fccd9299370\",\n         fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n         userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n         canView: true,\n         canDownload: false,\n         password: null,\n         ~~~~~~~~\n         expiresAt: null,\n         maxDownloads: null,\n     ?   id?: String,\n     ?   canEdit?: Boolean,\n     ?   passwordHash?: String | Null,\n     ?   downloadCount?: Int,\n     ?   isActive?: Boolean,\n     ?   createdAt?: DateTime,\n     ?   updatedAt?: DateTime\n       },\n       include: {\n         file: {\n           select: {\n             id: true,\n             name: true,\n             size: true,\n             type: true,\n             url: true\n           }\n         }\n       }\n     })\n\nUnknown argument `password`. Available options are marked with ?.","timestamp":"2025-08-12 19:28:35"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":80,"statusCode":500,"timestamp":"2025-08-12 19:28:35"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 19:30:35"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 19:30:35"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 19:30:48"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 19:30:48"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 19:31:12"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 19:31:12"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 19:31:15"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 19:31:16"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 19:31:19","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to create share link for file: cf581276-c299-49a1-866f-ea81d884ec4f. Error: Failed to create share link: \nInvalid `prisma.sharedLink.create()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:55:47\n\n  52   passwordHash = await bcrypt.hash(password, 10);\n  53 }\n  54 const shareToken = generateShareLink();\n→ 55 const shareLink = await prisma.sharedLink.create({\n       data: {\n         shareToken: \"01549d183a97374fe9c0e7d995c4c13e\",\n         fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n         userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n         canView: true,\n         canDownload: false,\n         password: null,\n         ~~~~~~~~\n         expiresAt: null,\n         maxDownloads: null,\n     ?   id?: String,\n     ?   canEdit?: Boolean,\n     ?   passwordHash?: String | Null,\n     ?   downloadCount?: Int,\n     ?   isActive?: Boolean,\n     ?   createdAt?: DateTime,\n     ?   updatedAt?: DateTime\n       },\n       include: {\n         file: {\n           select: {\n             id: true,\n             name: true,\n             size: true,\n             type: true,\n             url: true\n           }\n         }\n       }\n     })\n\nUnknown argument `password`. Available options are marked with ?.","timestamp":"2025-08-12 19:31:19"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":89,"statusCode":500,"timestamp":"2025-08-12 19:31:19"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 19:31:42"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 19:31:42"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 19:32:23"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 19:32:24"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 19:32:27","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to create share link for file: cf581276-c299-49a1-866f-ea81d884ec4f. Error: Failed to create share link: \nInvalid `prisma.sharedLink.create()` invocation in\n/home/yatharthDev/fileforge-backend/src/services/shareService.js:55:47\n\n  52   passwordHash = await bcrypt.hash(password, 10);\n  53 }\n  54 const shareToken = generateShareLink();\n→ 55 const shareLink = await prisma.sharedLink.create({\n       data: {\n         shareToken: \"9d942aac4b7603ecb20d8a0b277e5ea2\",\n         fileId: \"cf581276-c299-49a1-866f-ea81d884ec4f\",\n         userId: \"c0ba7881-01ac-48ff-a0fb-a5e2785e503a\",\n         canView: true,\n         canDownload: false,\n         passwordHash: null,\n         expiresAt: null,\n         maxDownloads: null\n       },\n       include: {\n         file: {\n           select: {\n             id: true,\n             name: true,\n             size: true,\n             type: true,\n             ~~~~\n             url: true,\n     ?       publicId?: true,\n     ?       isFavorite?: true,\n     ?       favoriteAt?: true,\n     ?       format?: true,\n     ?       thumbnailUuid?: true,\n     ?       thumbnailUrl?: true,\n     ?       ownerId?: true,\n     ?       isDeleted?: true,\n     ?       deletedAt?: true,\n     ?       deleteById?: true,\n     ?       createdAt?: true,\n     ?       updatedAt?: true,\n     ?       owner?: true,\n     ?       deletedBy?: true,\n     ?       sharedLinks?: true,\n     ?       _count?: true\n           }\n         }\n       }\n     })\n\nUnknown field `type` for select statement on model `File`. Available options are marked with ?.","timestamp":"2025-08-12 19:32:27"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":85,"statusCode":500,"timestamp":"2025-08-12 19:32:27"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 19:32:55"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 19:32:55"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 19:33:04","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"New share link created: cme8m310y0001jed4oa7lbw4u for file: cf581276-c299-49a1-866f-ea81d884ec4f with default permissions","timestamp":"2025-08-12 19:33:05"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":109,"statusCode":201,"timestamp":"2025-08-12 19:33:05"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 19:34:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":102,"statusCode":200,"timestamp":"2025-08-12 19:34:20"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 19:34:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":7,"statusCode":200,"timestamp":"2025-08-12 19:34:20"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 21:11:40","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":39,"statusCode":200,"timestamp":"2025-08-12 21:11:40"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 21:11:40","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":29,"statusCode":200,"timestamp":"2025-08-12 21:11:40"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:13:07"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:13:07"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:13:14"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:13:14"}
+{"address":"::","code":"EADDRINUSE","errno":-98,"level":"error","message":"Server failed to start: listen EADDRINUSE: address already in use :::5000","port":5000,"stack":"Error: listen EADDRINUSE: address already in use :::5000\n    at Server.setupListenHandle [as _listen2] (node:net:1908:16)\n    at listenInCluster (node:net:1965:12)\n    at Server.listen (node:net:2067:7)\n    at Function.listen (/home/yatharthDev/fileforge-backend/node_modules/express/lib/application.js:605:24)\n    at Object.<anonymous> (/home/yatharthDev/fileforge-backend/src/index.js:45:4)\n    at Module._compile (node:internal/modules/cjs/loader:1529:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)\n    at Module.load (node:internal/modules/cjs/loader:1275:32)\n    at Module._load (node:internal/modules/cjs/loader:1096:12)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)","syscall":"listen","timestamp":"2025-08-12 22:13:14"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 22:14:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":95,"statusCode":200,"timestamp":"2025-08-12 22:14:42"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 22:14:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-12 22:14:42"}
+{"body":{"email":"shubham@yopmail.com","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-12 22:16:12","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":216,"statusCode":200,"timestamp":"2025-08-12 22:16:12"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 22:16:12","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":4,"statusCode":200,"timestamp":"2025-08-12 22:16:12"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 22:16:14","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:14","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 22:16:14","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":181,"statusCode":404,"timestamp":"2025-08-12 22:16:14"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":263,"statusCode":200,"timestamp":"2025-08-12 22:16:14"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:14","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":301,"statusCode":404,"timestamp":"2025-08-12 22:16:14"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":20,"statusCode":200,"timestamp":"2025-08-12 22:16:14"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":15,"statusCode":200,"timestamp":"2025-08-12 22:16:20"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":18,"statusCode":200,"timestamp":"2025-08-12 22:16:20"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:21","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-12 22:16:21"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:21","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-12 22:16:21"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:29","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":14,"statusCode":404,"timestamp":"2025-08-12 22:16:29"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:29","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":15,"statusCode":404,"timestamp":"2025-08-12 22:16:29"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":16,"statusCode":200,"timestamp":"2025-08-12 22:16:33"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:33","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":11,"statusCode":200,"timestamp":"2025-08-12 22:16:33"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"true"},"timestamp":"2025-08-12 22:16:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":27,"statusCode":404,"timestamp":"2025-08-12 22:16:39"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:40","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":16,"statusCode":200,"timestamp":"2025-08-12 22:16:40"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"false"},"timestamp":"2025-08-12 22:16:41","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":18,"statusCode":404,"timestamp":"2025-08-12 22:16:41"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:41","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":13,"statusCode":200,"timestamp":"2025-08-12 22:16:41"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":15,"statusCode":200,"timestamp":"2025-08-12 22:16:43"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:45","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":11,"statusCode":200,"timestamp":"2025-08-12 22:16:45"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 22:16:45","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-12 22:16:45"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 22:17:13","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":67,"statusCode":200,"timestamp":"2025-08-12 22:17:13"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:28:10"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:28:11"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:28:47"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:28:47"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:29:01"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:29:02"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:29:26"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:29:26"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:29:53"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:29:54"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:30:25"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:30:25"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:31:07"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:31:07"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:31:25"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:31:26"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:31:57"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:31:57"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:32:06"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:32:07"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:32:56"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:32:57"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:39:07"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:39:07"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:39:28"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:39:28"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:39:35"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:39:36"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:40:22"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:40:23"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-12 22:41:35"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-12 22:41:35"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-12 22:42:35","userAgent":"PostmanRuntime/7.45.0"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-12 22:42:46","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-12 22:42:46"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":79,"statusCode":200,"timestamp":"2025-08-12 22:42:46"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f","query":{},"timestamp":"2025-08-12 22:44:32","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-12 22:44:32"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f","responseTime":5,"statusCode":404,"timestamp":"2025-08-12 22:44:32"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-12 22:45:17","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-12 22:45:17"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":5,"statusCode":200,"timestamp":"2025-08-12 22:45:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f","query":{},"timestamp":"2025-08-12 22:45:23","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-12 22:45:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f","responseTime":6,"statusCode":404,"timestamp":"2025-08-12 22:45:23"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-12 22:45:45","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-12 22:45:45"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":5,"statusCode":200,"timestamp":"2025-08-12 22:45:45"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f","query":{},"timestamp":"2025-08-12 22:45:52","userAgent":"PostmanRuntime/7.45.0"}
+{"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-12 22:45:52"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f","responseTime":3,"statusCode":404,"timestamp":"2025-08-12 22:45:52"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 23:05:02","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":172,"statusCode":200,"timestamp":"2025-08-12 23:05:02"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 23:09:11","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":9,"statusCode":200,"timestamp":"2025-08-12 23:09:11"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 23:11:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":46,"statusCode":200,"timestamp":"2025-08-12 23:11:35"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-12 23:11:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":8,"statusCode":200,"timestamp":"2025-08-12 23:11:35"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 23:11:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 23:11:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-12 23:11:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":34,"statusCode":404,"timestamp":"2025-08-12 23:11:35"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":30,"statusCode":200,"timestamp":"2025-08-12 23:11:35"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-12 23:11:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-12 23:11:35"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":31,"statusCode":404,"timestamp":"2025-08-12 23:11:35"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 23:11:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":24,"statusCode":200,"timestamp":"2025-08-12 23:11:38"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 23:11:41","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-12 23:11:48","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":9,"statusCode":200,"timestamp":"2025-08-12 23:11:48"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:27:16","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":40,"statusCode":200,"timestamp":"2025-08-13 08:27:16"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:27:16","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":7,"statusCode":200,"timestamp":"2025-08-13 08:27:16"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 08:27:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 08:27:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":54,"statusCode":404,"timestamp":"2025-08-13 08:27:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 08:27:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":9,"statusCode":404,"timestamp":"2025-08-13 08:27:17"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":67,"statusCode":200,"timestamp":"2025-08-13 08:27:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 08:27:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":10,"statusCode":200,"timestamp":"2025-08-13 08:27:17"}
+{"body":{"email":"shubham@yopmail.com","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-13 08:27:41","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":531,"statusCode":200,"timestamp":"2025-08-13 08:27:42"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:27:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":13,"statusCode":200,"timestamp":"2025-08-13 08:27:42"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 08:27:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":19,"statusCode":404,"timestamp":"2025-08-13 08:27:44"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 08:27:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":17,"statusCode":200,"timestamp":"2025-08-13 08:27:44"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 08:27:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 08:27:44","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":37,"statusCode":404,"timestamp":"2025-08-13 08:27:44"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":22,"statusCode":200,"timestamp":"2025-08-13 08:27:44"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 08:28:02","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 08:31:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":84,"statusCode":200,"timestamp":"2025-08-13 08:31:42"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 08:32:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:32:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 08:32:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":11,"statusCode":200,"timestamp":"2025-08-13 08:32:23"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 08:32:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 08:32:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":6,"statusCode":200,"timestamp":"2025-08-13 08:32:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":37,"statusCode":200,"timestamp":"2025-08-13 08:32:23"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:32:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":8,"statusCode":200,"timestamp":"2025-08-13 08:32:23"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 08:32:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 08:32:24","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 08:32:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:32:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 08:32:37"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":11,"statusCode":200,"timestamp":"2025-08-13 08:32:37"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":10,"statusCode":200,"timestamp":"2025-08-13 08:32:37"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 08:32:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:32:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 08:32:37"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":11,"statusCode":200,"timestamp":"2025-08-13 08:32:37"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":10,"statusCode":200,"timestamp":"2025-08-13 08:32:37"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 08:32:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 08:32:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 08:37:24","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":68,"statusCode":200,"timestamp":"2025-08-13 08:37:25"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 08:57:08","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:57:08","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":45,"statusCode":200,"timestamp":"2025-08-13 08:57:08"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 08:57:08"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":48,"statusCode":200,"timestamp":"2025-08-13 08:57:08"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:57:08","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 08:57:08","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-13 08:57:08"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 08:57:08"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":5,"statusCode":200,"timestamp":"2025-08-13 08:57:08"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-13 08:58:00","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":6406,"statusCode":200,"timestamp":"2025-08-13 08:58:06"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 08:58:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 08:58:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":11,"statusCode":404,"timestamp":"2025-08-13 08:58:06"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-13 08:58:06"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-13 08:58:13","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-13 08:58:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"New share link created: cme9eujfh0001ij29jsegvdft for file: dc096774-f2ac-49c0-9afd-4459fdfe3ee9 with default permissions","timestamp":"2025-08-13 08:58:17"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","responseTime":34,"statusCode":201,"timestamp":"2025-08-13 08:58:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/b94da447fc4f8dd41b6e53ef6e99b65b","query":{},"timestamp":"2025-08-13 08:58:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:58:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: dc096774-f2ac-49c0-9afd-4459fdfe3ee9 via token: b94da447fc4f8dd41b6e53ef6e99b65b","timestamp":"2025-08-13 08:58:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/b94da447fc4f8dd41b6e53ef6e99b65b","responseTime":7,"statusCode":200,"timestamp":"2025-08-13 08:58:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-13 08:58:23"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/b94da447fc4f8dd41b6e53ef6e99b65b","query":{},"timestamp":"2025-08-13 08:58:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:58:23","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: dc096774-f2ac-49c0-9afd-4459fdfe3ee9 via token: b94da447fc4f8dd41b6e53ef6e99b65b","timestamp":"2025-08-13 08:58:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/b94da447fc4f8dd41b6e53ef6e99b65b","responseTime":6,"statusCode":200,"timestamp":"2025-08-13 08:58:23"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-13 08:58:23"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-13 08:59:05","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":2200,"statusCode":200,"timestamp":"2025-08-13 08:59:07"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 08:59:07","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 08:59:07","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":6,"statusCode":200,"timestamp":"2025-08-13 08:59:07"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":33,"statusCode":404,"timestamp":"2025-08-13 08:59:07"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/5f87aa10-0d70-4981-b0ec-dd3386af5bbe","query":{},"timestamp":"2025-08-13 08:59:12","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"New share link created: cme9evpo00003ij297wohoi9d for file: 5f87aa10-0d70-4981-b0ec-dd3386af5bbe with default permissions","timestamp":"2025-08-13 08:59:12"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/5f87aa10-0d70-4981-b0ec-dd3386af5bbe","responseTime":28,"statusCode":201,"timestamp":"2025-08-13 08:59:12"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/9ae8b371a1192a3d21e999203eee8c94","query":{},"timestamp":"2025-08-13 08:59:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: 5f87aa10-0d70-4981-b0ec-dd3386af5bbe via token: 9ae8b371a1192a3d21e999203eee8c94","timestamp":"2025-08-13 08:59:17"}
+{"level":"info","message":"Outgoing response for GET","path":"/9ae8b371a1192a3d21e999203eee8c94","responseTime":4,"statusCode":200,"timestamp":"2025-08-13 08:59:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/9ae8b371a1192a3d21e999203eee8c94","query":{},"timestamp":"2025-08-13 08:59:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:59:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: 5f87aa10-0d70-4981-b0ec-dd3386af5bbe via token: 9ae8b371a1192a3d21e999203eee8c94","timestamp":"2025-08-13 08:59:17"}
+{"level":"info","message":"Outgoing response for GET","path":"/9ae8b371a1192a3d21e999203eee8c94","responseTime":5,"statusCode":200,"timestamp":"2025-08-13 08:59:17"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":4,"statusCode":200,"timestamp":"2025-08-13 08:59:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 08:59:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-13 08:59:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-13 09:00:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-13 09:00:45","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/5f87aa10-0d70-4981-b0ec-dd3386af5bbe","query":{},"timestamp":"2025-08-13 09:00:54","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming PATCH request","path":"/api/files/dc096774-f2ac-49c0-9afd-4459fdfe3ee9/toggle-star","query":{},"timestamp":"2025-08-13 09:01:48","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for PATCH","path":"/files/dc096774-f2ac-49c0-9afd-4459fdfe3ee9/toggle-star","responseTime":28,"statusCode":200,"timestamp":"2025-08-13 09:01:48"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 09:01:51","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":17,"statusCode":200,"timestamp":"2025-08-13 09:01:51"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 09:01:51","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":17,"statusCode":200,"timestamp":"2025-08-13 09:01:51"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"true"},"timestamp":"2025-08-13 09:01:52","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":21,"statusCode":200,"timestamp":"2025-08-13 09:01:52"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 09:01:54","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":13,"statusCode":200,"timestamp":"2025-08-13 09:01:54"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 09:01:58","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":404,"timestamp":"2025-08-13 09:01:58"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 09:01:58","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":7,"statusCode":404,"timestamp":"2025-08-13 09:01:58"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 09:02:00","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-13 09:02:00"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 09:02:00","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":18,"statusCode":200,"timestamp":"2025-08-13 09:02:00"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 11:05:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":40,"statusCode":200,"timestamp":"2025-08-13 11:05:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 11:05:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":3,"statusCode":200,"timestamp":"2025-08-13 11:05:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 11:05:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 11:05:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-13 11:05:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":48,"statusCode":404,"timestamp":"2025-08-13 11:05:27"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":46,"statusCode":200,"timestamp":"2025-08-13 11:05:27"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":24,"statusCode":404,"timestamp":"2025-08-13 11:05:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-13 11:05:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":12,"statusCode":200,"timestamp":"2025-08-13 11:05:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 11:05:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 11:05:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":8,"statusCode":200,"timestamp":"2025-08-13 11:05:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-13 11:05:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-13 11:05:28"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 11:05:28"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":53,"statusCode":200,"timestamp":"2025-08-13 11:05:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-13 11:05:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-13 11:05:28"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":6,"statusCode":200,"timestamp":"2025-08-13 11:05:28"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-14 20:59:09"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-14 20:59:10"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 20:59:55","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":30,"statusCode":403,"timestamp":"2025-08-14 20:59:55"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 20:59:55","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":13,"statusCode":403,"timestamp":"2025-08-14 20:59:55"}
+{"body":{"email":"shubham@yopmail.com","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-14 21:00:16","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":920,"statusCode":200,"timestamp":"2025-08-14 21:00:16"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:00:17","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":21,"statusCode":200,"timestamp":"2025-08-14 21:00:17"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-14 21:00:18","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:00:18","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-14 21:00:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":196,"statusCode":200,"timestamp":"2025-08-14 21:00:19"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":131,"statusCode":404,"timestamp":"2025-08-14 21:00:19"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":242,"statusCode":404,"timestamp":"2025-08-14 21:00:19"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:00:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":17,"statusCode":200,"timestamp":"2025-08-14 21:00:19"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/5f87aa10-0d70-4981-b0ec-dd3386af5bbe","query":{},"timestamp":"2025-08-14 21:00:29","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/5f87aa10-0d70-4981-b0ec-dd3386af5bbe","responseTime":79,"statusCode":200,"timestamp":"2025-08-14 21:00:29"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/9ae8b371a1192a3d21e999203eee8c94","query":{},"timestamp":"2025-08-14 21:00:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:00:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: 5f87aa10-0d70-4981-b0ec-dd3386af5bbe via token: 9ae8b371a1192a3d21e999203eee8c94","timestamp":"2025-08-14 21:00:35"}
+{"level":"info","message":"Outgoing response for GET","path":"/9ae8b371a1192a3d21e999203eee8c94","responseTime":7,"statusCode":200,"timestamp":"2025-08-14 21:00:35"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":200,"timestamp":"2025-08-14 21:00:35"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/9ae8b371a1192a3d21e999203eee8c94","query":{},"timestamp":"2025-08-14 21:00:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:00:35","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: 5f87aa10-0d70-4981-b0ec-dd3386af5bbe via token: 9ae8b371a1192a3d21e999203eee8c94","timestamp":"2025-08-14 21:00:35"}
+{"level":"info","message":"Outgoing response for GET","path":"/9ae8b371a1192a3d21e999203eee8c94","responseTime":5,"statusCode":200,"timestamp":"2025-08-14 21:00:35"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-14 21:00:35"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-14 21:00:40","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/cf581276-c299-49a1-866f-ea81d884ec4f","responseTime":14,"statusCode":200,"timestamp":"2025-08-14 21:00:40"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-14 21:00:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:00:42","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-14 21:00:42"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":8,"statusCode":200,"timestamp":"2025-08-14 21:00:42"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-14 21:00:42"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/f2bc44746693ca8f441df931d29f93f8","query":{},"timestamp":"2025-08-14 21:00:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:00:43","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: cf581276-c299-49a1-866f-ea81d884ec4f via token: f2bc44746693ca8f441df931d29f93f8","timestamp":"2025-08-14 21:00:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/f2bc44746693ca8f441df931d29f93f8","responseTime":6,"statusCode":200,"timestamp":"2025-08-14 21:00:43"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":200,"timestamp":"2025-08-14 21:00:43"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-14 21:03:12"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-14 21:03:12"}
+{"body":{"email":"shubham@yopmail.com","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-14 21:06:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":241,"statusCode":200,"timestamp":"2025-08-14 21:06:37"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:06:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":7,"statusCode":200,"timestamp":"2025-08-14 21:06:37"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-14 21:06:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:06:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-14 21:06:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":174,"statusCode":404,"timestamp":"2025-08-14 21:06:39"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":163,"statusCode":200,"timestamp":"2025-08-14 21:06:39"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:06:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":155,"statusCode":404,"timestamp":"2025-08-14 21:06:39"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":11,"statusCode":200,"timestamp":"2025-08-14 21:06:39"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:06:56","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-14 21:06:56"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:06:56","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":5,"statusCode":200,"timestamp":"2025-08-14 21:06:56"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:06:57","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-14 21:06:57"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-image-files","query":{"limit":"12","page":"1","starred":"true"},"timestamp":"2025-08-14 21:06:58","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-image-files","responseTime":27,"statusCode":200,"timestamp":"2025-08-14 21:06:58"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:06:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":18,"statusCode":200,"timestamp":"2025-08-14 21:06:59"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:07:02","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":14,"statusCode":404,"timestamp":"2025-08-14 21:07:02"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:07:02","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":14,"statusCode":404,"timestamp":"2025-08-14 21:07:02"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:07:03","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":16,"statusCode":200,"timestamp":"2025-08-14 21:07:03"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:07:03","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":19,"statusCode":200,"timestamp":"2025-08-14 21:07:04"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:07:04","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":12,"statusCode":200,"timestamp":"2025-08-14 21:07:04"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:07:04","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-14 21:07:05"}
+{"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/upload","query":{},"timestamp":"2025-08-14 21:07:26","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/upload","responseTime":4987,"statusCode":200,"timestamp":"2025-08-14 21:07:31"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-14 21:07:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:07:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":404,"timestamp":"2025-08-14 21:07:31"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-14 21:07:31"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/e66dd98c-4af4-463e-ae24-61f2b2aa62d7","query":{},"timestamp":"2025-08-14 21:07:36","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/cf581276-c299-49a1-866f-ea81d884ec4f","query":{},"timestamp":"2025-08-14 21:07:39","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/download/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-14 21:07:48","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-14 21:07:59","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{"name":"name"},"ip":"::1","level":"info","message":"Incoming PATCH request","path":"/api/rename-file/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-14 21:08:05","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for PATCH","path":"/rename-file/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","responseTime":24,"statusCode":200,"timestamp":"2025-08-14 21:08:05"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-14 21:08:10","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","responseTime":172,"statusCode":200,"timestamp":"2025-08-14 21:08:10"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","query":{},"timestamp":"2025-08-14 21:08:21","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/dc096774-f2ac-49c0-9afd-4459fdfe3ee9","responseTime":11,"statusCode":200,"timestamp":"2025-08-14 21:08:21"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/b94da447fc4f8dd41b6e53ef6e99b65b'","query":{},"timestamp":"2025-08-14 21:08:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:08:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-14 21:08:27"}
+{"level":"info","message":"Outgoing response for GET","path":"/b94da447fc4f8dd41b6e53ef6e99b65b'","responseTime":8,"statusCode":404,"timestamp":"2025-08-14 21:08:27"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-14 21:08:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/b94da447fc4f8dd41b6e53ef6e99b65b'","query":{},"timestamp":"2025-08-14 21:08:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:08:27","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-14 21:08:27"}
+{"level":"info","message":"Outgoing response for GET","path":"/b94da447fc4f8dd41b6e53ef6e99b65b'","responseTime":4,"statusCode":404,"timestamp":"2025-08-14 21:08:27"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":4,"statusCode":200,"timestamp":"2025-08-14 21:08:27"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:08:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/b94da447fc4f8dd41b6e53ef6e99b65b","query":{},"timestamp":"2025-08-14 21:08:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-14 21:08:31"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-14 21:08:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: dc096774-f2ac-49c0-9afd-4459fdfe3ee9 via token: b94da447fc4f8dd41b6e53ef6e99b65b","timestamp":"2025-08-14 21:08:31"}
+{"level":"info","message":"Outgoing response for GET","path":"/b94da447fc4f8dd41b6e53ef6e99b65b","responseTime":8,"statusCode":200,"timestamp":"2025-08-14 21:08:31"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":200,"timestamp":"2025-08-14 21:08:31"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/share/b94da447fc4f8dd41b6e53ef6e99b65b","query":{},"timestamp":"2025-08-14 21:08:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Public access to shared file: dc096774-f2ac-49c0-9afd-4459fdfe3ee9 via token: b94da447fc4f8dd41b6e53ef6e99b65b","timestamp":"2025-08-14 21:08:31"}
+{"level":"info","message":"Outgoing response for GET","path":"/b94da447fc4f8dd41b6e53ef6e99b65b","responseTime":4,"statusCode":200,"timestamp":"2025-08-14 21:08:31"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:09:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":18,"statusCode":200,"timestamp":"2025-08-14 21:09:37"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:09:37","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":15,"statusCode":200,"timestamp":"2025-08-14 21:09:37"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:09:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-14 21:09:38"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-14 21:09:38","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":5,"statusCode":200,"timestamp":"2025-08-14 21:09:38"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-15 10:26:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":28,"statusCode":200,"timestamp":"2025-08-15 10:26:19"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-15 10:26:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":3,"statusCode":200,"timestamp":"2025-08-15 10:26:19"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-15 10:26:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-15 10:26:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-15 10:26:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":90,"statusCode":200,"timestamp":"2025-08-15 10:26:19"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":70,"statusCode":404,"timestamp":"2025-08-15 10:26:19"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":99,"statusCode":404,"timestamp":"2025-08-15 10:26:19"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-15 10:26:19","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":11,"statusCode":200,"timestamp":"2025-08-15 10:26:19"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-16 14:52:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":3,"statusCode":403,"timestamp":"2025-08-16 14:52:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-16 14:52:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":2,"statusCode":403,"timestamp":"2025-08-16 14:52:28"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-18 11:31:16"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-18 11:31:16"}
+{"body":{"email":"shubham@yopmail.com","password":"shubham"},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/auth/login","query":{},"timestamp":"2025-08-18 11:32:29","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for POST","path":"/login","responseTime":194,"statusCode":200,"timestamp":"2025-08-18 11:32:30"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-18 11:32:30","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-18 11:32:30"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-18 11:32:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-18 11:32:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-18 11:32:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":99,"statusCode":404,"timestamp":"2025-08-18 11:32:31"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":85,"statusCode":404,"timestamp":"2025-08-18 11:32:31"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":82,"statusCode":200,"timestamp":"2025-08-18 11:32:31"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-18 11:32:31","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":7,"statusCode":200,"timestamp":"2025-08-18 11:32:31"}
