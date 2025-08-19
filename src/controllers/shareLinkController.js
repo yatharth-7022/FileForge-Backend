@@ -4,6 +4,7 @@ const {
   getSharedFileByToken,
   updateShareLinkService,
   downloadSharedFileService,
+  deleteShareLinkService,
 } = require("../services/shareService");
 const logger = require("../config/logger");
 const {
@@ -79,15 +80,9 @@ const createShareLink = async (req, res) => {
       `Failed to create share link for file: ${fileId}. Error: ${error.message}`
     );
 
-    if (error.message.includes(NO_PERMISSION_TO_VIEW)) {
-      return res.status(403).json({
-        success: false,
-        message: NO_PERMISSION_TO_VIEW,
-      });
-    }
-    res.status(500).json({
+    res.status(error.statusCode || 500).json({
       success: false,
-      message: "Failed to create share link",
+      message: error.message || "Internal server error",
     });
   }
 };
@@ -157,25 +152,9 @@ const getPublicSharedFile = async (req, res) => {
     });
   } catch (error) {
     logger.error(`Failed to retrieve shared file: ${error.message}`);
-    if (
-      error.message.includes("not found") ||
-      error.message.includes("expired")
-    ) {
-      return res.status(404).json({
-        success: false,
-        message: "Share link not found or has expired",
-      });
-    }
-
-    if (error.message.includes("limit exceeded")) {
-      return res.status(403).json({
-        success: false,
-        message: "Download limit has been exceeded for this share",
-      });
-    }
-    res.status(500).json({
+    res.status(error.statusCode || 500).json({
       success: false,
-      message: "Failed to retrieve shared file",
+      message: error.message || "Internal server error",
     });
   }
 };
@@ -239,15 +218,9 @@ const updateShareLink = async (req, res) => {
     });
   } catch (error) {
     logger.error(`Failed to update share link: ${error.message}`);
-    if (error.message.includes("not found")) {
-      return res.status(404).json({
-        success: false,
-        message: "Share link not found",
-      });
-    }
-    res.status(500).json({
+    res.status(error.statusCode || 500).json({
       success: false,
-      message: "Failed to update share link",
+      message: error.message || "Internal server error",
     });
   }
 };
@@ -314,26 +287,9 @@ const verifyPassword = async (req, res) => {
   } catch (error) {
     logger.error(`Password verification failed: ${error.message}`);
 
-    if (
-      error.message.includes("not found") ||
-      error.message.includes("expired")
-    ) {
-      return res.status(404).json({
-        success: false,
-        message: "Share link not found or has expired",
-      });
-    }
-
-    if (error.message.includes("limit exceeded")) {
-      return res.status(403).json({
-        success: false,
-        message: "Download limit has been exceeded for this share",
-      });
-    }
-
-    res.status(500).json({
+    res.status(error.statusCode || 500).json({
       success: false,
-      message: "Failed to verify password",
+      message: error.message || "Internal server error",
     });
   }
 };
@@ -376,28 +332,42 @@ const downloadSharedFile = async (req, res) => {
       `Download failed for share ${req.params.shareToken}: ${error.message}`
     );
 
-    if (
-      error.message.includes("not found") ||
-      error.message.includes("expired")
-    ) {
-      return res.status(404).json({
-        success: false,
-        message: "Share link not found or has expired",
-      });
-    }
-
-    res.status(500).json({
+    res.status(error.statusCode || 500).json({
       success: false,
-      message: "Failed to download shared file",
+      message: error.message || "Internal server error",
     });
   }
 };
-
+const deleteShareLink = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const { shareId } = req.params;
+    console.log(shareId, "share id");
+    const response = await deleteShareLinkService(shareId, userId);
+    if (!response) {
+      return res.status(404).json({
+        success: false,
+        message: "Share link not found or access denied to the user",
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      message: "Share link deleted successfully",
+    });
+  } catch (error) {
+    logger.error(`Failed to delete share link: ${error.message}`);
+    res.status(error.statusCode || 500).json({
+      success: false,
+      message: error.message || "Internal server error",
+    });
+  }
+};
 // Update exports
 module.exports = {
   createShareLink,
   getPublicSharedFile,
   updateShareLink,
   verifyPassword,
-  downloadSharedFile, // Add this
+  downloadSharedFile,
+  deleteShareLink,
 };
