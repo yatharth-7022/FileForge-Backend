@@ -2,12 +2,14 @@ const { NO_PERMISSION_TO_VIEW } = require("../constants/messages");
 const {
   getExistingShareLink,
   getSharedFileByToken,
+  updateShareLinkService,
+  downloadSharedFileService,
 } = require("../services/shareService");
 const logger = require("../config/logger");
 const {
   createShareLink: createShareLinkService,
 } = require("../services/shareService");
-
+const bcrypt = require("bcryptjs");
 const createShareLink = async (req, res) => {
   const fileId = req.params.fileId;
   const userId = req.user.userId;
@@ -38,7 +40,7 @@ const createShareLink = async (req, res) => {
     }
     const defaultValues = {
       canView: true,
-      canDownload: false,
+      canDownload: true,
       password: null,
       expiresAt: null,
       maxDownloads: null,
@@ -96,6 +98,34 @@ const getPublicSharedFile = async (req, res) => {
     logger.info(
       `Public access to shared file: ${sharedData.file.id} via token: ${shareToken}`
     );
+    if (sharedData.passwordHash) {
+      // Password protected - return limited info only
+      logger.info(`Password-protected share accessed: ${shareToken}`);
+
+      return res.status(200).json({
+        success: true,
+        message: "Password required to access this file",
+        data: {
+          shareId: sharedData.id,
+          requiresPassword: true,
+          permissions: {
+            canView: sharedData.canView,
+            canDownload: sharedData.canDownload,
+          },
+          file: {
+            name: sharedData.file.name,
+            format: sharedData.file.format,
+            size: sharedData.file.size,
+            // url: HIDDEN!
+          },
+          sharedBy: {
+            name: sharedData.user.name,
+          },
+          expiresAt: sharedData.expiresAt,
+        },
+      });
+    }
+
     res.status(200).json({
       success: true,
       message: "Shared file retrieved successfully",
@@ -149,8 +179,225 @@ const getPublicSharedFile = async (req, res) => {
     });
   }
 };
+const updateShareLink = async (req, res) => {
+  try {
+    const { shareId } = req.params;
+    const userId = req.user.userId;
 
+    const {
+      canView,
+      canDownload,
+      password,
+      expiresInDays,
+      maxDownloads,
+      removePassword = false,
+    } = req.body;
+
+    let expiresAt = null;
+    if (expiresInDays !== undefined) {
+      if (expiresInDays === 0 || expiresInDays === null) {
+        expiresAt = null;
+      } else {
+        expiresAt = new Date();
+        expiresAt.setDate(expiresAt.getDate() + expiresInDays);
+      }
+    }
+    const updateOptions = {
+      canView,
+      canDownload,
+      password,
+      expiresAt,
+      maxDownloads,
+      removePassword,
+    };
+    const updateShare = await updateShareLinkService(
+      shareId,
+      userId,
+      updateOptions
+    );
+    logger.info(`Share link updated: ${shareId} by user: ${userId}`);
+    res.status(200).json({
+      success: true,
+      message: "Share link setting updated successfully",
+      data: {
+        id: updateShare.id,
+        canView: updateShare.canView,
+        canDownload: updateShare.canDownload,
+        hasPassword: !!updateShare.passwordHash,
+        expiresAt: updateShare.expiresAt,
+        maxDownloads: updateShare.maxDownloads,
+        downloadCount: updateShare.downloadCount,
+        isActive: updateShare.isActive,
+        updatedAt: updateShare.updatedAt,
+        file: {
+          id: updateShare.file.id,
+          name: updateShare.file.name,
+          size: updateShare.file.size,
+          format: updateShare.file.format,
+        },
+      },
+    });
+  } catch (error) {
+    logger.error(`Failed to update share link: ${error.message}`);
+    if (error.message.includes("not found")) {
+      return res.status(404).json({
+        success: false,
+        message: "Share link not found",
+      });
+    }
+    res.status(500).json({
+      success: false,
+      message: "Failed to update share link",
+    });
+  }
+};
+const verifyPassword = async (req, res) => {
+  try {
+    const { shareToken } = req.params;
+    const { password } = req.body;
+
+    if (!password) {
+      return res.status(400).json({
+        success: false,
+        message: "Password is required",
+      });
+    }
+    const sharedData = await getSharedFileByToken(shareToken);
+    if (!sharedData?.passwordHash) {
+      return res.status(400).json({
+        success: false,
+        message: "This file is not password protected",
+      });
+    }
+    const isPasswordCorrect = await bcrypt.compare(
+      password,
+      sharedData?.passwordHash
+    );
+    if (!isPasswordCorrect) {
+      logger.warn(`Failed password attempt for share: ${shareToken}`);
+      return res.status(401).json({
+        success: false,
+        message: "Incorrect password",
+      });
+    }
+    logger.info(`Successful password verification for share: ${shareToken}`);
+
+    res.status(200).json({
+      success: true,
+      message: "Password verified successfully",
+      data: {
+        shareId: sharedData.id,
+        shareToken: sharedData.shareToken,
+        permissions: {
+          canView: sharedData.canView,
+          canDownload: sharedData.canDownload,
+          hasPassword: true,
+        },
+        file: {
+          id: sharedData.file.id,
+          name: sharedData.file.name,
+          format: sharedData.file.format,
+          size: sharedData.file.size,
+          url: sharedData.file.url,
+          uploadedOn: sharedData.file.createdAt,
+        },
+        sharedBy: {
+          id: sharedData.user.id,
+          name: sharedData.user.name,
+          email: sharedData.user.email,
+        },
+        downloadCount: sharedData.downloadCount,
+        maxDownloads: sharedData.maxDownloads,
+        expiresAt: sharedData.expiresAt,
+      },
+    });
+  } catch (error) {
+    logger.error(`Password verification failed: ${error.message}`);
+
+    if (
+      error.message.includes("not found") ||
+      error.message.includes("expired")
+    ) {
+      return res.status(404).json({
+        success: false,
+        message: "Share link not found or has expired",
+      });
+    }
+
+    if (error.message.includes("limit exceeded")) {
+      return res.status(403).json({
+        success: false,
+        message: "Download limit has been exceeded for this share",
+      });
+    }
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to verify password",
+    });
+  }
+};
+const downloadSharedFile = async (req, res) => {
+  try {
+    const { shareToken } = req.params;
+
+    // Get shared file data
+    const sharedData = await downloadSharedFileService(shareToken);
+    console.log(sharedData, "this is console");
+    if (!sharedData) {
+      return res.status(404).json({
+        success: false,
+        message: "Shared file not found",
+      });
+    }
+
+    // Check download permission
+    if (!sharedData.canDownload) {
+      return res.status(403).json({
+        success: false,
+        message: "Download is not allowed for this shared file",
+      });
+    }
+
+    // Check download limits BEFORE incrementing
+    if (
+      sharedData.maxDownloads &&
+      sharedData.downloadCount >= sharedData.maxDownloads
+    ) {
+      return res.status(403).json({
+        success: false,
+        message: "Download limit exceeded for this shared file",
+      });
+    }
+
+    res.redirect(sharedData.file.url);
+  } catch (error) {
+    logger.error(
+      `Download failed for share ${req.params.shareToken}: ${error.message}`
+    );
+
+    if (
+      error.message.includes("not found") ||
+      error.message.includes("expired")
+    ) {
+      return res.status(404).json({
+        success: false,
+        message: "Share link not found or has expired",
+      });
+    }
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to download shared file",
+    });
+  }
+};
+
+// Update exports
 module.exports = {
   createShareLink,
   getPublicSharedFile,
+  updateShareLink,
+  verifyPassword,
+  downloadSharedFile, // Add this
 };

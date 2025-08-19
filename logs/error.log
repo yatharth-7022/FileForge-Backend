@@ -34,3 +34,14 @@
 {"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-12 22:45:52"}
 {"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-14 21:08:27"}
 {"level":"error","message":"Failed to retrieve shared file: Failed to retrieve shared file: Shared link not found or expired","timestamp":"2025-08-14 21:08:27"}
+{"level":"error","message":"Failed to update share link: Cannot destructure property 'canView' of 'req.body' as it is undefined.","timestamp":"2025-08-18 12:28:21"}
+{"level":"error","message":"Failed to update share link: updatedShare is not defined","timestamp":"2025-08-18 12:30:15"}
+{"level":"error","message":"Password verification failed: Cannot destructure property 'password' of 'req.body' as it is undefined.","timestamp":"2025-08-18 17:55:59"}
+{"level":"error","message":"Password verification failed: Cannot destructure property 'password' of 'req.body' as it is undefined.","timestamp":"2025-08-18 17:56:17"}
+{"level":"error","message":"Password verification failed: Cannot destructure property 'password' of 'req.body' as it is undefined.","timestamp":"2025-08-18 17:56:43"}
+{"level":"error","message":"Password verification failed: shareToken is not defined","timestamp":"2025-08-18 17:56:58"}
+{"level":"error","message":"Password verification failed: bcrypt is not defined","timestamp":"2025-08-18 17:57:47"}
+{"level":"error","message":"Failed to update share link: Share link not found or access denied to the user","timestamp":"2025-08-18 19:17:01"}
+{"level":"error","message":"Download failed for share f2bc44746693ca8f441df931d29f93f8: prisma is not defined","timestamp":"2025-08-19 10:56:27"}
+{"level":"error","message":"Failed to download shared file: shareToken is not defined","timestamp":"2025-08-19 11:00:06"}
+{"level":"error","message":"Download failed for share f2bc44746693ca8f441df931d29f93f8: Failed to download shared file: shareToken is not defined","timestamp":"2025-08-19 11:00:06"}
