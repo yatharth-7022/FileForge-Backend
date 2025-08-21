@@ -7525,3 +7525,42 @@
 {"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-19 12:15:25","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
 {"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":13,"statusCode":200,"timestamp":"2025-08-19 12:15:25"}
 {"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":8,"statusCode":200,"timestamp":"2025-08-19 12:15:25"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/a774546e-481d-4254-b5ad-19a9022be80a","query":{},"timestamp":"2025-08-19 12:38:46","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming PATCH request","path":"/api/files/a774546e-481d-4254-b5ad-19a9022be80a/toggle-star","query":{},"timestamp":"2025-08-19 12:39:01","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for PATCH","path":"/files/a774546e-481d-4254-b5ad-19a9022be80a/toggle-star","responseTime":10,"statusCode":200,"timestamp":"2025-08-19 12:39:01"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming PATCH request","path":"/api/files/a774546e-481d-4254-b5ad-19a9022be80a/toggle-star","query":{},"timestamp":"2025-08-19 12:39:04","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for PATCH","path":"/files/a774546e-481d-4254-b5ad-19a9022be80a/toggle-star","responseTime":20,"statusCode":200,"timestamp":"2025-08-19 12:39:04"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/download/a774546e-481d-4254-b5ad-19a9022be80a","query":{},"timestamp":"2025-08-19 12:39:06","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"body":{},"ip":"::1","level":"info","message":"Incoming POST request","path":"/api/share/create-share-link/a774546e-481d-4254-b5ad-19a9022be80a","query":{},"timestamp":"2025-08-19 12:39:13","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"New share link created: cmei7drsg0005ijg34fsfdgyb for file: a774546e-481d-4254-b5ad-19a9022be80a with default permissions","timestamp":"2025-08-19 12:39:13"}
+{"level":"info","message":"Outgoing response for POST","path":"/create-share-link/a774546e-481d-4254-b5ad-19a9022be80a","responseTime":96,"statusCode":201,"timestamp":"2025-08-19 12:39:13"}
+{"body":{"canDownload":false,"canView":true},"ip":"::1","level":"info","message":"Incoming PUT request","path":"/api/share/update/cmei7drsg0005ijg34fsfdgyb","query":{},"timestamp":"2025-08-19 12:39:20","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Share link updated: cmei7drsg0005ijg34fsfdgyb by user: c0ba7881-01ac-48ff-a0fb-a5e2785e503a","timestamp":"2025-08-19 12:39:20"}
+{"level":"info","message":"Outgoing response for PUT","path":"/update/cmei7drsg0005ijg34fsfdgyb","responseTime":24,"statusCode":200,"timestamp":"2025-08-19 12:39:20"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-19 12:40:04","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":45,"statusCode":200,"timestamp":"2025-08-19 12:40:04"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-19 12:40:04","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":200,"timestamp":"2025-08-19 12:40:04"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-19 12:40:04","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":200,"timestamp":"2025-08-19 12:40:04"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-19 12:40:04","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":200,"timestamp":"2025-08-19 12:40:04"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-19 12:40:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":5,"statusCode":200,"timestamp":"2025-08-19 12:40:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/auth/user","query":{},"timestamp":"2025-08-19 12:40:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/user","responseTime":6,"statusCode":200,"timestamp":"2025-08-19 12:40:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-19 12:40:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-19 12:40:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":25,"statusCode":200,"timestamp":"2025-08-19 12:40:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/get-files","query":{"limit":"12","page":"1"},"timestamp":"2025-08-19 12:40:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/get-files","responseTime":9,"statusCode":200,"timestamp":"2025-08-19 12:40:28"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":70,"statusCode":200,"timestamp":"2025-08-19 12:40:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/trash","query":{"limit":"10","page":"1"},"timestamp":"2025-08-19 12:40:28","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Outgoing response for GET","path":"/trash","responseTime":10,"statusCode":200,"timestamp":"2025-08-19 12:40:28"}
+{"ip":"::1","level":"info","message":"Incoming GET request","path":"/api/view-file/a774546e-481d-4254-b5ad-19a9022be80a","query":{},"timestamp":"2025-08-19 12:43:07","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-19 12:58:21"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-19 12:58:22"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-19 13:54:36"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-19 13:54:36"}
+{"level":"info","message":"Logger initialized in development mode","timestamp":"2025-08-19 13:54:52"}
+{"level":"info","message":"Server is running on port 5000","timestamp":"2025-08-19 13:54:52"}

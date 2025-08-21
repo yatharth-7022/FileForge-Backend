@@ -19,12 +19,13 @@ model User{
   files File[] @relation("FileOwner")
   deletedFiles File[] @relation("FileDeleter")
   sharedLinks SharedLink[] @relation("UserSharedLinks")
+  folders Folder[]
 
   @@map("users")
 }
  
 model File{
-  id String @id@default(uuid())
+  id String @id @default(uuid())
   name String
   url String
   size Int
@@ -43,6 +44,8 @@ model File{
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   sharedLinks SharedLink[]
+  folderId String?
+  folder Folder? @relation(fields: [folderId], references: [id], onDelete: SetNull)
 
   @@map("files")
 
@@ -72,5 +75,21 @@ model SharedLink{
   file File @relation(fields: [fileId], references: [id],onDelete: Cascade)
 
   user User @relation("UserSharedLinks", fields: [userId], references: [id])
+
+}
+model Folder{
+  id String @id @default(cuid())
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  files File[]
+  parentId String?
+  isDeleted Boolean @default(false)
+  parent Folder? @relation("FolderHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  children Folder[] @relation("FolderHierarchy")
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("folders")
 
 }
