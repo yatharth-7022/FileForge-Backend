@@ -10,11 +10,10 @@ const app = express();
 const allowedOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(",")
   : ["http://localhost:3000"];
-// CORS Configuration
 app.use(
   cors({
-    origin: allowedOrigins, // Allow your frontend URL
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    origin: allowedOrigins,
+    credentials: true, 
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
   })
